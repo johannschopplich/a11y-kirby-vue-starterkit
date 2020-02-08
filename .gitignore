@@ -1,0 +1,27 @@
+.DS_Store
+.env
+package-lock.json
+/frontend/node_modules/
+
+# Build files
+/public/css
+/public/js
+/public/media
+/public/*.js
+/public/manifest.json
+/site/templates/default.php
+
+# Kirby-related
+.lock
+/public/media/*
+!/public/media/index.html
+/storage/accounts/*
+!/storage/accounts/index.html
+/storage/cache/*
+!/storage/cache/index.html
+/storage/sessions/*
+!/storage/sessions/index.html
+/site/config/.license
+
+/site/config/redirects.yml
+/site/logs/

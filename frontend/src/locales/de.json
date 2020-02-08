@@ -1,0 +1,11 @@
+{
+  "confirm": "OK",
+  "back": "Zurück",
+  "load": "Laden",
+  "login": "Anmelden",
+  "debug.activate": "Debug aktivieren",
+  "debug.deactivate": "Debug deaktivieren",
+  "debug.reload": "App neu starten",
+  "serviceWorker.updateAvailable": "Neue App-Version verfügbar",
+  "serviceWorker.updated": "Neue App-Version wird geladen …"
+}

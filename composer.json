@@ -1,0 +1,20 @@
+{
+  "require": {
+    "php": ">=7.3.0",
+    "getkirby/cms": "^3.0",
+    "getkirby/editor": "^1.0",
+    "distantnative/retour-for-kirby": "^2.3",
+    "rbdwllr/reallysimplejwt": "^2.1",
+    "beebmx/kirby-env": "^1.0",
+    "cre8ivclick/sitemapper": "^1.0"
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "extra": {
+    "kirby-cms-path": false
+  },
+  "scripts": {
+    "serve": ["Composer\\Config::disableProcessTimeout", "php -S 127.0.0.1:8080 -t public/ cliserver.php"]
+  }
+}
