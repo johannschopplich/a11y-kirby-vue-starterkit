@@ -29,17 +29,17 @@ If another development server or URL is used, update the `VUE_APP_BACKEND_URL` i
 
 ## Usage
 
-### Serve both backend and frontend for development
+### Serve backend & frontend for development
 
 ```bash
 # Run the Kirby backend using PHP's built-in web server
-# This command uses `php -S 127.0.0.1:8080 -t public/ server.php` under the hood
+# This command uses `php -S 127.0.0.1:8080 -t public/ cliserver.php` under the hood
 composer serve
 # Compile Vue frontend and hot-reload for development
 cd frontend && npm run serve
 ```
 
-### Compile and minify for production
+### Compile for production
 
 ```bash
 cd frontend && npm run build
@@ -56,4 +56,4 @@ cd frontend && npm run build
 
 ## Credits
 
-Big (!) shoutout to jmedveckyh's [kirby-vue-starterkit](https://github.com/jmedveckyh/kirby-vue-starterkit)!
+Big shoutout to jmheretik's [kirby-vue-starterkit](https://github.com/jmheretik/kirby-vue-starterkit)!
