@@ -2,8 +2,9 @@
 
 return function ($page, $site) {
     $pageTitle = (!$page->isHomePage() ? $page->title() . ' – ' : '') . $site->title();
-    $pageDescription = $site->description();
-    $pageThumbnail = $site->thumbnail()->toFile() ? $site->thumbnail()->toFile()->url() : '';
+    $pageDescription = $page->description()->or($site->description());
+    $siteThumbnail = $site->thumbnail()->toFile() ? $site->thumbnail()->toFile()->url() : '';
+    $pageThumbnail = $page->thumbnail()->toFile() ? $page->thumbnail()->toFile()->url() : $siteThumbnail;
 
     foreach ($site->children()->listed() as $child) {
         $index[] = [
