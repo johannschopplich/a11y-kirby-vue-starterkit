@@ -23,5 +23,6 @@ package-lock.json
 !/storage/sessions/index.html
 /site/config/.license
 
+/site/config/.retour
 /site/config/redirects.yml
 /site/logs/
