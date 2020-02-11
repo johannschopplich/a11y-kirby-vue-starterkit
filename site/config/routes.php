@@ -20,6 +20,14 @@ return [
                 ->body($robots);
         }
     ],
+    [
+        'pattern' => '(:all).panel',
+        'action' => function ($id) {
+            if (kirby()->user() && $page = page($id)) {
+                go($page->panelUrl());
+            }
+        }
+    ],
     // [
     //     'pattern' => '(:any).json',
     //     'action'  => function ($any) {
