@@ -21,10 +21,5 @@ return function ($page, $site) {
         'children' => $index
     ];
 
-    return [
-        'pageTitle' => $pageTitle,
-        'pageDescription' => $pageDescription,
-        'pageThumbnail' => $pageThumbnail,
-        'siteData' => $siteData
-    ];
+    return compact('pageTitle' , 'pageDescription', 'pageThumbnail', 'siteData');
 };
