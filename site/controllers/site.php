@@ -11,7 +11,7 @@ return function ($page, $site) {
     ];
 
     foreach ($site->children()->listed() as $child) {
-        $siteData['children'][] [
+        $siteData['children'][] = [
             'uri' => $child->uri(),
             'template' => $child->intendedTemplate()->name(),
             'title' => $child->content()->title()->value(),
