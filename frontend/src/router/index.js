@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { capitalize as capitalizeMixin } from '@/mixins/general'
 
 import Home from '@/views/Home.vue'
 
@@ -14,7 +13,7 @@ const routes = [
   }
 ]
 
-const capitalize = capitalizeMixin.methods.capitalize
+const capitalize = ([first, ...rest], lowerRest = false) => first.toUpperCase() + (lowerRest ? rest.join('').toLowerCase() : rest.join(''))
 
 export default {
   async init (site) {

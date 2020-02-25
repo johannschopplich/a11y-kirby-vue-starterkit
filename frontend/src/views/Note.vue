@@ -4,7 +4,7 @@
     <article class="note">
       <header class="note-header intro">
         <h1>{{ page.title }}</h1>
-        <time class="note-date">{{ page.date | format('day month year') }}</time>
+        <time class="note-date">{{ page.date }}</time>
         <p v-if="page.tags" class="note-tags tags">{{ page.tags }}</p>
       </header>
 
@@ -17,12 +17,11 @@
 
 <script>
 import page from '@/mixins/page'
-import { formatDateTime } from '@/mixins/general'
 
 export default {
   name: 'Note',
 
-  mixins: [page, formatDateTime]
+  mixins: [page]
 }
 </script>
 
