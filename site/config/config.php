@@ -30,10 +30,6 @@ return [
             'default' => [360, 720],
             'cover' => [720, 1280, 1920]
         ]
-    ],
-
-    'jwt' => [
-        'secret' => env('JWT_SECRET', 'secret')
-    ],
+    ]
 
 ];
