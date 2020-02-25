@@ -1,4 +1,4 @@
-# Kirby Vue Starterkit
+# Accessible Vue Kirby Starterkit
 
 This project uses [Kirby](https://getkirby.com/) as a headless CMS at the backend and [Vue.js](https://vuejs.org/) as a UI library at the frontend. The communication in between is handled using the [Kirby's Content Representations](https://getkirby.com/docs/guide/templates/content-representations).
 
@@ -56,4 +56,4 @@ cd frontend && npm run build
 
 ## Credits
 
-Big shoutout to jmheretik's [kirby-vue-starterkit](https://github.com/jmheretik/kirby-vue-starterkit)!
+Big shoutout to jmheretik's [kirby-json-vue-starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit)!
