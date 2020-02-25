@@ -1,9 +1,24 @@
 <template>
   <header class="header">
-    <router-link to="/" class="logo">{{ $site.title }}</router-link>
+    <router-link to="/" class="logo">
+      <a :href="href" :aria-current="isExactActive ? 'page' : false" @click="navigate">{{ $site.title }}</a>
+    </router-link>
 
     <nav id="menu" class="menu">
-      <router-link v-for="page in $site.children" :key="page.uri" :to="`/${page.uri}`">{{ page.title }}</router-link>
+      <router-link
+        v-for="page in $site.children"
+        v-slot="{ href, isExactActive, navigate }"
+        :key="page.uri"
+        :to="`/${page.uri}`"
+      >
+        <a
+          :href="href"
+          :aria-current="isExactActive ? 'page' : false"
+          @click="navigate"
+        >
+          {{ page.title }}
+        </a>
+      </router-link>
     </nav>
   </header>
 </template>

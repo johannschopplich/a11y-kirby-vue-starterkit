@@ -52,7 +52,6 @@ export default {
   },
 
   mounted () {
-    this.setAriaCurrent()
     // Handle anchors, see https://stackoverflow.com/a/45206192
     setTimeout(() => this.scrollFix(this.$route.hash), 5)
   },
@@ -67,22 +66,6 @@ export default {
         this.$announcer.set(`Current page: ${title}`)
         // Set route focus
         this.$refs.skiplink.$el.focus()
-        this.setAriaCurrent()
-      })
-    },
-
-    setAriaCurrent () {
-      this.$nextTick(() => {
-        const oldCurrents = this.$el.querySelectorAll('[aria-current]')
-        const newCurrents = this.$el.querySelectorAll('.router-link-exact-active')
-
-        oldCurrents && oldCurrents.forEach(current => {
-          current.removeAttribute('aria-current')
-        })
-
-        newCurrents && newCurrents.forEach(current => {
-          current.setAttribute('aria-current', 'page')
-        })
       })
     },
 
