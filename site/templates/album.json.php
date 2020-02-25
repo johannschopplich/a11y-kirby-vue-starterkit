@@ -1,25 +1,25 @@
 <?php
 
-$cover = $page->cover()->toFile() ? [
-  'url' => $page->cover()->toFile()->crop(1024, 768)->url(),
-  'alt' => $page->cover()->toFile()->alt()->value()
-] : null;
+$data = [
+  'title' => $page->title()->value(),
+  'headline' => $page->headline()->or($page->title())->value(),
+  'description' => $page->description()->kt()->value(),
+  'tags' => $page->tags()->isNotEmpty() ? $page->tags()->value() : null,
+];
 
-foreach ($page->images()->sortBy('sort') as $image) {
-  $gallery[] = [
-    'link' => $image->link()->value(),
+if ($cover = $page->cover()->toFile()) {
+  $data['cover'] = [
+    'url' => $cover->crop(1024, 768)->url(),
+    'alt' => $cover->alt()->value()
+  ];
+}
+
+foreach($page->images()->sortBy('sort') as $image) {
+  $data['gallery'][] = [
+    'link' => $image->link()->or($image->url())->value(),
     'url' => $image->crop(800, 1000)->url(),
     'alt' => $image->alt()->value()
   ];
 }
-
-$data = [
-  'title' => $page->title()->value(),
-  'cover' => $cover,
-  'headline' => $page->headline()->value(),
-  'description' => $page->description()->kt()->value(),
-  'tags' => $page->tags()->value(),
-  'gallery' => $gallery
-];
 
 echo json_encode($data);

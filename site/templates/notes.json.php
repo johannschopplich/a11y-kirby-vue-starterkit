@@ -1,16 +1,15 @@
 <?php
 
-foreach ($page->children()->listed() as $note) {
-  $notes[] = [
-    'url' => $note->uri(),
-    'title' => $note->content()->title()->value(),
-    'date' => $note->content()->date()->value()
+$data = [
+  'title' => $page->title()->value()
+];
+
+foreach ($page->children()->listed()->sortBy('date', 'desc') as $note) {
+  $data['children'][] = [
+    'uri' => $note->uri(),
+    'title' => $note->title()->value(),
+    'date' => $note->date()->toDate('d F Y')
   ];
 }
-
-$data = [
-  'title' => $page->title()->value(),
-  'notes' => $notes
-];
 
 echo json_encode($data);

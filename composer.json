@@ -4,9 +4,8 @@
     "getkirby/cms": "^3.0",
     "getkirby/editor": "^1.0",
     "distantnative/retour-for-kirby": "^2.3",
-    "rbdwllr/reallysimplejwt": "^2.1",
     "beebmx/kirby-env": "^1.0",
-    "cre8ivclick/sitemapper": "^1.0"
+    "kirbyzone/sitemapper": "^1.0"
   },
   "config": {
     "optimize-autoloader": true

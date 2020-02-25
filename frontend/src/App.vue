@@ -13,7 +13,7 @@
       <Header />
 
       <keep-alive>
-        <router-view :key="$route.path.substr(1) || 'home'" />
+        <router-view :key="$route.path.substr(1) || 'home'" @update-title="updateTitle" />
       </keep-alive>
     </div>
 
@@ -39,17 +39,6 @@ export default {
     }
   },
 
-  watch: {
-    $route () {
-      this.$nextTick(() => {
-        // Page title will be already set by page mixin
-        this.setRouteAnnouncement(document.title)
-        this.setRouteFocus()
-        this.setAriaCurrent()
-      })
-    }
-  },
-
   created () {
     // Listen for the `ServiceWorkerUpdated` event and display refresh snackbar as required
     document.addEventListener('ServiceWorkerUpdated', this.swUpdateAvailable, { once: true })
@@ -64,21 +53,22 @@ export default {
 
   mounted () {
     this.setAriaCurrent()
-    // https://stackoverflow.com/a/45206192
-    setTimeout(() => this.scrollFix(this.$route.hash), 2)
+    // Handle anchors, see https://stackoverflow.com/a/45206192
+    setTimeout(() => this.scrollFix(this.$route.hash), 5)
   },
 
   methods: {
-    scrollFix (hashbang) {
-      if (hashbang) window.location.hash = hashbang
-    },
+    updateTitle (title) {
+      const pageTitle = !this.isHomePage ? `${title} – ${this.$site.title}` : this.$site.title
+      document.title = pageTitle
 
-    setRouteAnnouncement (pagetitle) {
-      this.$announcer.set(`Current page: ${pagetitle}`)
-    },
-
-    setRouteFocus () {
-      this.$refs.skiplink.$el.focus()
+      this.$nextTick(() => {
+        // Set route announcement
+        this.$announcer.set(`Current page: ${title}`)
+        // Set route focus
+        this.$refs.skiplink.$el.focus()
+        this.setAriaCurrent()
+      })
     },
 
     setAriaCurrent () {
@@ -94,6 +84,10 @@ export default {
           current.setAttribute('aria-current', 'page')
         })
       })
+    },
+
+    scrollFix (hashbang) {
+      if (hashbang) window.location.hash = hashbang
     },
 
     swUpdateAvailable (registration) {
@@ -121,8 +115,7 @@ export default {
 }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
 li {

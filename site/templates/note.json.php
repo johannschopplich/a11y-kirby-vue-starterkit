@@ -2,9 +2,9 @@
 
 $data = [
   'title' => $page->title()->value(),
+  'date' => $page->date()->toDate('d F Y'),
+  'tags' => $page->tags()->isNotEmpty() ? $page->tags()->value() : null,
   'text' => $page->text()->kt()->value(),
-  'date' => $page->date()->value(),
-  'tags' => $page->tags()->value()
 ];
 
 echo json_encode($data);

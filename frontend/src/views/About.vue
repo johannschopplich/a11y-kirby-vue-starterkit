@@ -60,7 +60,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .layout {
   display: grid;
   grid-template-columns: 1fr;

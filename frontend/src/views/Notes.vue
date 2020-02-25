@@ -4,11 +4,11 @@
     <Intro :page-title="page.title" />
 
     <div class="notes">
-      <article v-for="note in page.notes" :key="note.url" class="note">
+      <article v-for="note in page.children" :key="note.uri" class="note">
         <header class="note-header">
-          <router-link :to="`/${note.url}`">
+          <router-link :to="`/${note.uri}`">
             <h2>{{ note.title }}</h2>
-            <time>{{ note.date | format('day month year') }}</time>
+            <time>{{ note.date }}</time>
           </router-link>
         </header>
       </article>
@@ -18,7 +18,6 @@
 
 <script>
 import page from '@/mixins/page'
-import { formatDateTime } from '@/mixins/general'
 import Intro from '@/components/Intro.vue'
 
 export default {
@@ -28,7 +27,7 @@ export default {
     Intro
   },
 
-  mixins: [page, formatDateTime]
+  mixins: [page]
 }
 </script>
 

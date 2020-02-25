@@ -1,31 +1,33 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { capitalize } from '@/mixins/general'
+import { capitalize as capitalizeMixin } from '@/mixins/general'
 
 import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 
-export default class Router {
-  constructor (pages) {
-    const routes = [
-      {
-        path: '/',
-        name: 'home',
-        component: Home
-      }
-    ]
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home
+  }
+]
 
-    for (const page of pages) {
+const capitalize = capitalizeMixin.methods.capitalize
+
+export default {
+  async init (site) {
+    for (const page of site.children) {
       routes.push({
-        path: `/${page.url}`,
-        component: () => import(`@/views/${this.capitalize(page.template)}.vue`)
+        path: `/${page.uri}`,
+        component: () => import(`@/views/${capitalize(page.template)}.vue`)
       })
 
-      if (page.hasChildren) {
+      if (page.childTemplate) {
         routes.push({
-          path: `/${page.url}/:id`,
-          component: () => import(`@/views/${this.capitalize(page.childTemplate)}.vue`)
+          path: `/${page.uri}/:id`,
+          component: () => import(`@/views/${capitalize(page.childTemplate)}.vue`)
         })
       }
     }
@@ -42,6 +44,4 @@ export default class Router {
       routes
     })
   }
-
-  capitalize = capitalize.methods.capitalize
 }

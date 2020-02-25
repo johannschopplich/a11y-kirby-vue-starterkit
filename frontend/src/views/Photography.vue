@@ -2,11 +2,11 @@
   <main id="main">
     <Intro :page-title="page.title" />
 
-    <ul v-if="page.albums" class="albums" :data-even="page.albums.length % 2 === 0">
-      <li v-for="album in page.albums" :key="album.url">
-        <router-link :to="`/${album.url}`">
+    <ul v-if="page.children" class="albums" :data-even="page.children.length % 2 === 0">
+      <li v-for="album in page.children" :key="album.uri">
+        <router-link :to="`/${album.uri}`">
           <figure>
-            <img :src="album.image.url" :alt="album.image.alt">
+            <img :src="album.cover.url" :alt="album.cover.alt">
 
             <figcaption>{{ album.title }}</figcaption>
           </figure>
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .albums {
   display: grid;
   list-style: none;

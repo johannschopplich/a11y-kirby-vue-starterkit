@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b412a9a91e3e7aa41b8e389b502e9e61",
+    "content-hash": "5140b7d78e61cd054387af50045a5cd1",
     "packages": [
         {
             "name": "beebmx/kirby-env",
@@ -94,39 +94,6 @@
             ],
             "description": "A PHP class that makes working with images as simple as possible.",
             "time": "2017-09-12T09:03:56+00:00"
-        },
-        {
-            "name": "cre8ivclick/sitemapper",
-            "version": "1.2",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/cre8ivclick/sitemapper.git",
-                "reference": "de48a9ace7f7ab6366c0245cc43f30954cacd296"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/cre8ivclick%2Fsitemapper/repository/archive.zip?sha=de48a9ace7f7ab6366c0245cc43f30954cacd296",
-                "reference": "de48a9ace7f7ab6366c0245cc43f30954cacd296",
-                "shasum": ""
-            },
-            "require": {
-                "getkirby/composer-installer": "^1.1"
-            },
-            "type": "kirby-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cre8iv Click",
-                    "email": "hello@cre8iv.click",
-                    "homepage": "https://cre8iv.click"
-                }
-            ],
-            "description": "Cre8iv Click's Automatic Sitemap Generator Plugin for Kirby",
-            "homepage": "https://gitlab.com/cre8ivclick/sitemapper",
-            "time": "2019-12-11T05:53:40+00:00"
         },
         {
             "name": "distantnative/retour-for-kirby",
@@ -235,16 +202,16 @@
         },
         {
             "name": "getkirby/cms",
-            "version": "3.3.3",
+            "version": "3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getkirby/kirby.git",
-                "reference": "4c5e2c1feb1b9052902f8ad7d6e8248dc1eaafb7"
+                "reference": "0330c0ae4214cde349710b099a770fffd0971b4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getkirby/kirby/zipball/4c5e2c1feb1b9052902f8ad7d6e8248dc1eaafb7",
-                "reference": "4c5e2c1feb1b9052902f8ad7d6e8248dc1eaafb7",
+                "url": "https://api.github.com/repos/getkirby/kirby/zipball/0330c0ae4214cde349710b099a770fffd0971b4e",
+                "reference": "0330c0ae4214cde349710b099a770fffd0971b4e",
                 "shasum": ""
             },
             "require": {
@@ -290,7 +257,7 @@
                 "core",
                 "kirby"
             ],
-            "time": "2020-01-20T11:13:00+00:00"
+            "time": "2020-02-18T08:42:36+00:00"
         },
         {
             "name": "getkirby/composer-installer",
@@ -332,16 +299,16 @@
         },
         {
             "name": "getkirby/editor",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getkirby/editor.git",
-                "reference": "04bb7131db996ef18d2eb9c3ee065daa0044c814"
+                "reference": "ab855dcb573ff211e8f77e70e11ae1161002d29a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getkirby/editor/zipball/04bb7131db996ef18d2eb9c3ee065daa0044c814",
-                "reference": "04bb7131db996ef18d2eb9c3ee065daa0044c814",
+                "url": "https://api.github.com/repos/getkirby/editor/zipball/ab855dcb573ff211e8f77e70e11ae1161002d29a",
+                "reference": "ab855dcb573ff211e8f77e70e11ae1161002d29a",
                 "shasum": ""
             },
             "require": {
@@ -350,7 +317,7 @@
                 "php": ">=7.1.0"
             },
             "require-dev": {
-                "getkirby/cms": "^3.2"
+                "getkirby/cms": "^3.3"
             },
             "type": "kirby-plugin",
             "notification-url": "https://packagist.org/downloads/",
@@ -372,7 +339,40 @@
                 "plugin",
                 "wysiwyg"
             ],
-            "time": "2019-11-26T10:16:25+00:00"
+            "time": "2020-02-18T09:22:09+00:00"
+        },
+        {
+            "name": "kirbyzone/sitemapper",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/kirbyzone/sitemapper.git",
+                "reference": "de48a9ace7f7ab6366c0245cc43f30954cacd296"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/kirbyzone%2Fsitemapper/repository/archive.zip?sha=de48a9ace7f7ab6366c0245cc43f30954cacd296",
+                "reference": "de48a9ace7f7ab6366c0245cc43f30954cacd296",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.1"
+            },
+            "type": "kirby-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cre8iv Click",
+                    "email": "hello@cre8iv.click",
+                    "homepage": "https://cre8iv.click"
+                }
+            ],
+            "description": "Cre8iv Click's Automatic Sitemap Generator Plugin for Kirby",
+            "homepage": "https://gitlab.com/cre8ivclick/sitemapper",
+            "time": "2019-12-11T16:53:40+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -898,71 +898,17 @@
             "time": "2019-11-01T11:05:21+00:00"
         },
         {
-            "name": "rbdwllr/reallysimplejwt",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RobDWaller/ReallySimpleJWT.git",
-                "reference": "145c55fbd70ab2295059228e098e86bf4070eabc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RobDWaller/ReallySimpleJWT/zipball/145c55fbd70ab2295059228e098e86bf4070eabc",
-                "reference": "145c55fbd70ab2295059228e098e86bf4070eabc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.0"
-            },
-            "require-dev": {
-                "infection/infection": "^0.12.2",
-                "phploc/phploc": "^4.0",
-                "phpmd/phpmd": "2.6.*",
-                "phpstan/phpstan": "^0.10",
-                "phpunit/phpunit": "^7.0",
-                "sebastian/phpcpd": "^4.0",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ReallySimpleJWT\\": "src",
-                    "Tests\\": "tests"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rob Waller",
-                    "email": "rdwaller1984@gmail.com"
-                }
-            ],
-            "description": "A really simple library to generate user authentication JSON Web Tokens.",
-            "keywords": [
-                "Authentication",
-                "json",
-                "json web tokens",
-                "jwt",
-                "php",
-                "tokens"
-            ],
-            "time": "2019-08-13T15:31:13+00:00"
-        },
-        {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
                 "shasum": ""
             },
             "require": {
@@ -974,7 +920,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -1007,20 +953,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-11-27T13:56:44+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
                 "shasum": ""
             },
             "require": {
@@ -1032,7 +978,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -1066,7 +1012,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-11-27T14:18:11+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "true/punycode",

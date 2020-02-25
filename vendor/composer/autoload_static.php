@@ -27,16 +27,11 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
         'T' => 
         array (
             'TrueBV\\' => 7,
-            'Tests\\' => 6,
         ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
-        ),
-        'R' => 
-        array (
-            'ReallySimpleJWT\\' => 16,
         ),
         'P' => 
         array (
@@ -77,10 +72,6 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
         array (
             0 => __DIR__ . '/..' . '/true/punycode/src',
         ),
-        'Tests\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests',
-        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -88,10 +79,6 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
-        ),
-        'ReallySimpleJWT\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -451,27 +438,8 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
         'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
-        'ReallySimpleJWT\\Build' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Build.php',
-        'ReallySimpleJWT\\Encode' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Encode.php',
-        'ReallySimpleJWT\\Exception\\ValidateException' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Exception/ValidateException.php',
-        'ReallySimpleJWT\\Helper\\JsonEncoder' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Helper/JsonEncoder.php',
-        'ReallySimpleJWT\\Interfaces\\EncodeInterface' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Interfaces/EncodeInterface.php',
-        'ReallySimpleJWT\\Jwt' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Jwt.php',
-        'ReallySimpleJWT\\Parse' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Parse.php',
-        'ReallySimpleJWT\\Parsed' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Parsed.php',
-        'ReallySimpleJWT\\Token' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Token.php',
-        'ReallySimpleJWT\\Validate' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/src/Validate.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
-        'Tests\\BuildTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/BuildTest.php',
-        'Tests\\EncodeTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/EncodeTest.php',
-        'Tests\\EndToEndTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/EndToEndTest.php',
-        'Tests\\JsonEncoderTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/JsonEncoderTest.php',
-        'Tests\\JwtTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/JwtTest.php',
-        'Tests\\ParseTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/ParseTest.php',
-        'Tests\\ParsedTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/ParsedTest.php',
-        'Tests\\TokenTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/TokenTest.php',
-        'Tests\\ValidateTest' => __DIR__ . '/..' . '/rbdwllr/reallysimplejwt/tests/ValidateTest.php',
         'TrueBV\\Exception\\DomainOutOfBoundsException' => __DIR__ . '/..' . '/true/punycode/src/Exception/DomainOutOfBoundsException.php',
         'TrueBV\\Exception\\LabelOutOfBoundsException' => __DIR__ . '/..' . '/true/punycode/src/Exception/LabelOutOfBoundsException.php',
         'TrueBV\\Exception\\OutOfBoundsException' => __DIR__ . '/..' . '/true/punycode/src/Exception/OutOfBoundsException.php',

@@ -3,10 +3,10 @@
     <Intro :page-title="page.title" />
 
     <ul class="grid">
-      <li v-for="album in page.albums" :key="album.url">
-        <router-link :to="`/${album.url}`">
+      <li v-for="album in photography.children" :key="album.uri">
+        <router-link :to="`/${album.uri}`">
           <figure>
-            <img :src="album.image.src" :alt="album.image.alt">
+            <img :src="album.cover.urlHome" :alt="album.cover.alt">
 
             <figcaption>
               <span>
@@ -31,11 +31,21 @@ export default {
     Intro
   },
 
-  mixins: [page]
+  mixins: [page],
+
+  data () {
+    return {
+      photography: []
+    }
+  },
+
+  async created () {
+    this.photography = await this.$api.getPage('photography')
+  }
 }
 </script>
 
-<style scoped>
+<style>
 .grid {
   display: grid;
   list-style: none;

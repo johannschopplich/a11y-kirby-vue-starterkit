@@ -3,23 +3,21 @@
 return function ($page, $site) {
     $pageTitle = (!$page->isHomePage() ? $page->title() . ' – ' : '') . $site->title();
     $pageDescription = $page->description()->or($site->description());
-    $siteThumbnail = $site->thumbnail()->toFile() ? $site->thumbnail()->toFile()->url() : '';
+    $siteThumbnail = $site->thumbnail()->toFile() ? $site->thumbnail()->toFile()->url() : null;
     $pageThumbnail = $page->thumbnail()->toFile() ? $page->thumbnail()->toFile()->url() : $siteThumbnail;
 
+    $siteData = [
+        'title' => $site->title()->value()
+    ];
+
     foreach ($site->children()->listed() as $child) {
-        $index[] = [
-            'url' => $child->uri(),
+        $siteData['children'][] [
+            'uri' => $child->uri(),
             'template' => $child->intendedTemplate()->name(),
             'title' => $child->content()->title()->value(),
-            'hasChildren' => $child->hasChildren(),
             'childTemplate' => $child->hasChildren() ? $child->children()->first()->intendedTemplate()->name() : null
         ];
     }
-
-    $siteData = [
-        'title' => $site->title()->value(),
-        'children' => $index
-    ];
 
     return compact('pageTitle' , 'pageDescription', 'pageThumbnail', 'siteData');
 };

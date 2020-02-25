@@ -1,9 +1,9 @@
 <template>
   <header class="header">
-    <router-link to="/" class="logo">{{ $root.site.title }}</router-link>
+    <router-link to="/" class="logo">{{ $site.title }}</router-link>
 
     <nav id="menu" class="menu">
-      <router-link v-for="page in $root.site.children" :key="page.url" :to="`/${page.url}`">{{ page.title }}</router-link>
+      <router-link v-for="page in $site.children" :key="page.uri" :to="`/${page.uri}`">{{ page.title }}</router-link>
     </nav>
   </header>
 </template>
@@ -14,7 +14,13 @@ export default {
 }
 </script>
 
-<style>
+<script>
+export default {
+  name: 'Header'
+}
+</script>
+
+<style scoped>
 .header {
   margin-bottom: 1.5rem;
 }
