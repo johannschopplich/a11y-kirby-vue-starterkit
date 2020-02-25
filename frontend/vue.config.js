@@ -24,15 +24,6 @@ module.exports = {
     }
   },
 
-  pluginOptions: {
-    i18n: {
-      locale: process.env.VUE_APP_I18N_LOCALE,
-      fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE,
-      localeDir: 'locales',
-      enableInSFC: false
-    }
-  },
-
   pwa: {
     name: process.env.VUE_APP_NAME,
     themeColor: process.env.PWA_THEMECOLOR,
