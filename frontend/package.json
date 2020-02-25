@@ -17,6 +17,7 @@
     "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
+    "@babel/parser": "7.7.5",
     "@vue/cli-plugin-babel": "^4.2.2",
     "@vue/cli-plugin-eslint": "^4.2.2",
     "@vue/cli-plugin-pwa": "^4.2.2",
