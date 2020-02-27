@@ -12,7 +12,7 @@
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
     "vue-announcer": "^1.0.6",
-    "vue-router": "^3.1.5"
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@babel/parser": "7.7.5",
@@ -22,7 +22,7 @@
     "@vue/cli-plugin-router": "^4.2.2",
     "@vue/cli-service": "^4.2.2",
     "@vue/eslint-config-standard": "^5.1.2",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "del-cli": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.1",
@@ -30,7 +30,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.1",
-    "sass": "^1.26.0",
+    "sass": "^1.26.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
@@ -62,7 +62,6 @@
     }
   },
   "browserslist": [
-    "> 0.5% in DE",
-    "not IE 11"
+    "> 0.25%"
   ]
 }
