@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import Router from '@/setup/router'
 import '@/setup/plugins'
-import '@/registerServiceWorker'
+import '@/setup/register-service-worker'
 
 import ky from '@/api/ky'
 import KirbyApi from '@/api/kirby'
