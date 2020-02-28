@@ -26,8 +26,8 @@ module.exports = {
 
   pwa: {
     name: process.env.VUE_APP_NAME,
-    themeColor: process.env.PWA_THEMECOLOR,
-    msTileColor: process.env.VUE_APP_PWA_MSTILECOLOR,
+    themeColor: process.env.VUE_APP_PWA_THEMECOLOR,
+    msTileColor: process.env.VUE_APP_PWA_BGCOLOR,
     appleMobileWebAppCapable: 'yes',
     // Possible values: `default`, `black`, and `black-translucent`
     appleMobileWebAppStatusBarStyle: 'default',
@@ -35,7 +35,7 @@ module.exports = {
     // rather than directly copy it from the public folder
     manifestOptions: {
       start_url: '/index.html',
-      background_color: '#ffffff',
+      background_color: process.env.VUE_APP_PWA_BGCOLOR,
       // Copy all default icons and add new maskable icon
       icons: [
         {
