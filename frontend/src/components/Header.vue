@@ -1,7 +1,14 @@
 <template>
   <header class="header">
-    <router-link to="/" class="logo">
-      <a :href="href" :aria-current="isExactActive ? 'page' : false" @click="navigate">{{ $site.title }}</a>
+    <router-link v-slot="{ href, isExactActive, navigate }" to="/">
+      <a
+        :href="href"
+        :aria-current="isExactActive ? 'page' : false"
+        class="logo"
+        @click="navigate"
+      >
+        {{ $site.title }}
+      </a>
     </router-link>
 
     <nav id="menu" class="menu">
