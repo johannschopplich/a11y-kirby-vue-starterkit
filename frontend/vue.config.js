@@ -9,6 +9,13 @@ module.exports = {
     ? '../site/templates/default.php'
     : 'index.html',
 
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      template: 'src/index.html'
+    }
+  },
+
   devServer: {
     proxy: process.env.VUE_APP_BACKEND_URL
   },
@@ -60,6 +67,8 @@ module.exports = {
         }
       ]
     },
+
+    serviceWorker: true,
 
     // Configure the workbox plugin
     workboxPluginMode: 'InjectManifest',
