@@ -52,7 +52,7 @@ cd frontend && npm run build
 
 - Vue.js views in in [frontend/src/views](frontend/src/views) folder correspond to Kirby templates and the routes are being automatically resolved.
 - If you add a new page with a new blueprint you also need to manually add a new **View** (exactly as you would add a new **Template** if you were working on a frontend in Kirby).
-- Vue.js mixin `page` [src/components/mixins/page.js](src/components/mixins/page.js) roughly corresponds to the `$page` object in Kirby.
+- Vue.js mixin [`page`](frontend/src/components/mixins/page.js) roughly corresponds to the `$page` object in Kirby.
 
 ## Credits
 
