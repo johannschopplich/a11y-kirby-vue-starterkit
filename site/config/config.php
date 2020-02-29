@@ -27,8 +27,7 @@ return [
     'thumbs' => [
         'quality' => '80',
         'srcsets' => [
-            'default' => [360, 720],
-            'cover' => [720, 1280, 1920]
+            'default' => [360, 720]
         ]
     ]
 
