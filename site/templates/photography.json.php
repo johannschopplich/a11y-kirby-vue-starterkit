@@ -5,7 +5,7 @@ $data = [
 ];
 
 foreach ($page->children()->listed() as $album) {
-  if ($cover = $album->content()->cover()->toFile()) {
+  if ($cover = $album->cover()->toFile()) {
     $coverData = [
       'url' => $cover->crop(800, 1000)->url(),
       'urlHome' => $cover->resize(1024, 1024)->url(),
