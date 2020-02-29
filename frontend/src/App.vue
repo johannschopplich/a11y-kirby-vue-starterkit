@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/styles/_helpers";
+@import "@/styles/accessibility";
 
 :root {
   --content-width: 65rem;
