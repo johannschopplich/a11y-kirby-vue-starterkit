@@ -36,12 +36,6 @@ export default {
 }
 </script>
 
-<script>
-export default {
-  name: 'Header'
-}
-</script>
-
 <style scoped>
 .header {
   margin-bottom: 1.5rem;
