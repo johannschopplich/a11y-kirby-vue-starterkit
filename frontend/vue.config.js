@@ -68,13 +68,14 @@ module.exports = {
       ]
     },
 
+    // Ability to disable service worker while keeping manifest generation
     serviceWorker: true,
 
     // Configure the workbox plugin
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       // importWorkboxFrom: 'local',
-      swSrc: 'src/service-worker.js',
+      swSrc: 'src/sw.js',
       swDest: 'service-worker.js',
       exclude: [/\.map$/]
     }

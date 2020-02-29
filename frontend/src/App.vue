@@ -35,18 +35,18 @@ export default {
 
   data () {
     return {
-      swRefreshing: false
+      isRefreshing: false
     }
   },
 
   created () {
-    // Listen for the `ServiceWorkerUpdated` event and display refresh snackbar as required
-    document.addEventListener('ServiceWorkerUpdated', this.swUpdateAvailable, { once: true })
+    // Listen for the `ServiceWorkerUpdated` event
+    document.addEventListener('ServiceWorkerUpdated', this.refreshApp, { once: true })
 
     // Refresh all open app tabs when a new service worker is installed
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (this.swRefreshing) return
-      this.swRefreshing = true
+      if (this.isRefreshing) return
+      this.isRefreshing = true
       window.location.reload()
     })
   },
@@ -73,7 +73,8 @@ export default {
       if (hashbang) window.location.hash = hashbang
     },
 
-    swUpdateAvailable (registration) {
+    refreshApp (e) {
+      const registration = e.detail
       if (!registration || !registration.waiting) return
       // The new service worker is installed, but not active until message is posted
       registration.waiting.postMessage({ type: 'SKIP_WAITING' })
