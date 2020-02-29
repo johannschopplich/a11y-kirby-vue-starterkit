@@ -1,4 +1,6 @@
 {
+  "name": "aria-kirby-vue-starterkit",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "clean": "del-cli -f ../public/{js,css,*.js}",
