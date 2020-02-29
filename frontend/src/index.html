@@ -2,33 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?= $pageTitle ?></title>
-    <meta name="description" content="<?= $pageDescription ?>">
-    <link rel="canonical" href="<?= $kirby->request()->url() ?>" />
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="<?= $kirby->request()->url() ?>">
-    <meta property="og:title" content="<?= $pageTitle ?>">
-    <meta property="og:description" content="<?= $pageDescription ?>">
-    <meta property="og:image" content="<?= $pageThumbnail ?>">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:domain" content="<?= Url::host() ?>">
-    <meta name="twitter:title" content="<?= $pageTitle ?>">
-    <meta name="twitter:description" content="<?= $pageDescription ?>">
-    <meta name="twitter:image" content="<?= $pageThumbnail ?>">
-    <meta name="twitter:url" content="<?= $kirby->request()->url() ?>">
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <?php snippet('meta') ?>
+    <% } else { %>
+      <title><%= htmlWebpackPlugin.options.title %></title>
+    <% } %>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but Vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <% if (process.env.NODE_ENV === 'production') { %>
       <script>window.$site = <?= json_encode($siteData) ?></script>
     <% } %>
-    <!-- Built files will be auto injected -->
+    <!-- Built files will be auto-injected -->
   </body>
 </html>
