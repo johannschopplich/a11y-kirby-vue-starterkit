@@ -1,7 +1,18 @@
-.skiplink:not(:active):not(:focus) {
-  clip-path: inset(100%);
+.skiplink {
   position: absolute;
-  width: 1px;
+  top: 5px;
+  border: 0 none;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
+  margin: -1px;
+  overflow: hidden;
   white-space: nowrap;
+  width: 1px;
+
+  &:focus {
+    clip: auto;
+    height: auto;
+    position: fixed;
+    width: auto;
+  }
 }
