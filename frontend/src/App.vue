@@ -61,12 +61,10 @@ export default {
       const pageTitle = !this.isHomePage ? `${title} – ${this.$site.title}` : this.$site.title
       document.title = pageTitle
 
-      this.$nextTick(() => {
-        // Set route announcement
-        this.$announcer.set(`Current page: ${title}`)
-        // Set route focus
-        this.$refs.skiplink.$el.focus()
-      })
+      // Set route announcement
+      this.$announcer.set(`Current page: ${title}`)
+      // Set route focus
+      this.$refs.skiplink.$el.focus()
     },
 
     scrollFix (hashbang) {
