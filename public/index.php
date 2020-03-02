@@ -5,7 +5,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $kirby = new Kirby([
     'roots' => [
         'index'    => __DIR__,
-        'base'     => $base    = dirname(__DIR__),
+        'base'     => $base = dirname(__DIR__),
         'site'     => $base . '/site',
         'storage'  => $storage = $base . '/storage',
         'content'  => $storage . '/content',

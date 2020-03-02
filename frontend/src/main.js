@@ -23,6 +23,12 @@ Vue.config.productionTip = false
       }
     },
 
+    methods: {
+      scrollTop () {
+        window.scrollTo(0, 0)
+      }
+    },
+
     render: h => h(App)
   }).$mount('#app')
 })()

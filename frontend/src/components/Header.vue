@@ -17,6 +17,7 @@
         v-slot="{ href, isExactActive, navigate }"
         :key="page.uri"
         :to="`/${page.uri}`"
+        @click.native="$root.scrollTop"
       >
         <a
           :href="href"
