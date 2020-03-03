@@ -17,7 +17,7 @@ module.exports = {
   },
 
   devServer: {
-    proxy: process.env.VUE_APP_BACKEND_URL
+    proxy: process.env.VUE_APP_BACKEND_URL || 'http://127.0.0.1:8080'
   },
 
   css: {
@@ -34,10 +34,10 @@ module.exports = {
   pwa: {
     title: process.env.VUE_APP_NAME,
     themeColor: process.env.VUE_APP_PWA_THEMECOLOR,
-    msTileColor: process.env.VUE_APP_PWA_BGCOLOR,
+    msTileColor: process.env.VUE_APP_PWA_THEMECOLOR,
     iconPaths: {
-      favicon32: 'img/icons/favicon-32x32.png',
       favicon16: 'img/icons/favicon-16x16.png',
+      favicon32: 'img/icons/favicon-32x32.png',
       appleTouchIcon: 'img/icons/apple-touch-icon.png',
       maskIcon: 'img/icons/safari-pinned-tab.svg',
       msTileImage: 'img/icons/msapplication-icon-144x144.png'
