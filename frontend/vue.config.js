@@ -32,18 +32,25 @@ module.exports = {
   },
 
   pwa: {
-    name: process.env.VUE_APP_NAME,
+    title: process.env.VUE_APP_NAME,
     themeColor: process.env.VUE_APP_PWA_THEMECOLOR,
     msTileColor: process.env.VUE_APP_PWA_BGCOLOR,
+    iconPaths: {
+      favicon32: 'img/icons/favicon-32x32.png',
+      favicon16: 'img/icons/favicon-16x16.png',
+      appleTouchIcon: 'img/icons/apple-touch-icon.png',
+      maskIcon: 'img/icons/safari-pinned-tab.svg',
+      msTileImage: 'img/icons/msapplication-icon-144x144.png'
+    },
+    // Add to home screen for Safari on iOS
     appleMobileWebAppCapable: 'yes',
-    // Possible values: `default`, `black`, and `black-translucent`
-    appleMobileWebAppStatusBarStyle: 'default',
-    // Generate `manifest.json` from the config object
-    // rather than directly copy it from the public folder
+    appleMobileWebAppStatusBarStyle: 'default', // Possible values: `default`, `black`, and `black-translucent`
+    // Generate manifest from the config object
     manifestOptions: {
+      name: process.env.VUE_APP_NAME,
+      short_name: process.env.VUE_APP_NAME,
       start_url: '/index.html',
-      background_color: process.env.VUE_APP_PWA_BGCOLOR,
-      // Copy all default icons and add new maskable icon
+      background_color: process.env.VUE_APP_PWA_THEMECOLOR,
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
@@ -60,8 +67,8 @@ module.exports = {
         // https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
         // Icons that don’t follow the new format are given a white background
         {
-          src: './img/icons/android-maskable-196x196.png',
-          sizes: '196x196',
+          src: './img/icons/android-chrome-192x192.png',
+          sizes: '192x192',
           type: 'image/png',
           purpose: 'maskable'
         }
@@ -69,7 +76,7 @@ module.exports = {
     },
 
     // Ability to disable service worker while keeping manifest generation
-    serviceWorker: true,
+    // serviceWorker: false,
 
     // Configure the workbox plugin
     workboxPluginMode: 'InjectManifest',
