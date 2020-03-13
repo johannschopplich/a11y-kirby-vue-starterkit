@@ -13,8 +13,7 @@ The project benefits from all the standard tools used in modern frontend develop
 
 ### Frontend
 ```bash
-cd frontend
-npm install
+cd frontend && npm install
 ```
 
 ### Backend
@@ -45,8 +44,7 @@ cd frontend && npm run serve
 cd frontend && npm run build
 ```
 
-**Final step**:
-- Point your web server to the `public` folder.
+Point your web server to the `public` folder.
 
 ## Notes
 

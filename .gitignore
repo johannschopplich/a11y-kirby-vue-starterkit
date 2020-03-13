@@ -3,7 +3,7 @@
 package-lock.json
 /frontend/node_modules/
 
-# Build files
+# Frontend-related
 /public/css
 /public/js
 /public/media
