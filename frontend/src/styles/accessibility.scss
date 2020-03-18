@@ -1,18 +1,13 @@
-.skiplink {
+.skip-to-content-link {
   position: absolute;
-  top: 5px;
-  border: 0 none;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 1px;
+  left: 50%;
+  height: 2rem;
+  padding: 0.5rem;
+  background: #e77e23;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
 
   &:focus {
-    clip: auto;
-    height: auto;
-    position: fixed;
-    width: auto;
+    transform: translateY(0%);
   }
 }

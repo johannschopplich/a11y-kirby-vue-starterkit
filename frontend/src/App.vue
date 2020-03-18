@@ -3,7 +3,7 @@
     <router-link
       ref="skiplink"
       to="#main"
-      class="skiplink"
+      class="skip-to-content-link"
       @click.native="scrollFix('#main')"
     >
       Skip to content
