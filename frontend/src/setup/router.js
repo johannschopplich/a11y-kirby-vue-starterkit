@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
+import Default from '@/views/Default.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '*',
+    name: 'Default',
+    component: Default
   }
 ]
 
@@ -29,12 +35,6 @@ export default {
         })
       }
     }
-
-    // Add a catch-all route
-    routes.push({
-      path: '*',
-      redirect: { name: 'home' }
-    })
 
     return new VueRouter({
       mode: 'history',

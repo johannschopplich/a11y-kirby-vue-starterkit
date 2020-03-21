@@ -28,17 +28,19 @@ return [
             }
         }
     ],
-    // [
-    //     'pattern' => '(:any).json',
-    //     'action'  => function ($any) {
-    //         $fetchHeader = $_SERVER['HTTP_X_REQUESTED_WITH'] ?? null;
+    [
+        'pattern' => '(:any).json',
+        'action'  => function ($uri) {
+            $requestedWith = $_SERVER['HTTP_X_REQUESTED_WITH'] ?? null;
 
-    //         // Somewhat secure JSON output from direct access in production environment
-    //         if (option('debug') === false && $fetchHeader === null) {
-    //             go(url('error'));
-    //         }
-
-    //         $this->next();
-    //     }
-    // ]
+            if (page($uri) && $requestedWith === 'fetch') {
+                $this->next();
+            } else {
+                return new Response(tpl::load(kirby()->roots()->templates() . '/default.json.php', [
+                    'site' => site(),
+                    'page' => page('error')
+                ], false), 'application/json');
+            }
+        }
+    ]
 ];
