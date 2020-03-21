@@ -18,16 +18,16 @@ module.exports = {
     proxy: process.env.VUE_APP_BACKEND_URL || 'http://127.0.0.1:8080'
   },
 
-  css: {
-    loaderOptions: {
-      sass: {
-        implementation: require('sass'),
-        prependData: `
-          @import "@/styles/_variables.scss";
-        `
-      }
-    }
-  },
+  // css: {
+  //   loaderOptions: {
+  //     sass: {
+  //       implementation: require('sass'),
+  //       prependData: `
+  //         @import "@/styles/_variables.scss";
+  //       `
+  //     }
+  //   }
+  // },
 
   pwa: {
     title: process.env.VUE_APP_NAME,
