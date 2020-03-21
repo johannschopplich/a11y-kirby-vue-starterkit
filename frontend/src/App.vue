@@ -53,7 +53,7 @@ export default {
 
   mounted () {
     // Handle anchors, see https://stackoverflow.com/a/45206192
-    setTimeout(() => this.scrollFix(this.$route.hash), 5)
+    setTimeout(() => this.scrollFix(this.$route.hash), 2)
   },
 
   methods: {
@@ -81,9 +81,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "@/styles/accessibility";
-
+<style>
 :root {
   --content-width: 65rem;
 }
@@ -98,6 +96,19 @@ export default {
 
 html {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+.skip-to-content-link {
+  position: absolute;
+  left: 50%;
+  height: 2rem;
+  padding: 0.5rem;
+  transform: translate(-50%, -100%);
+  transition: transform 0.3s;
+}
+
+.skip-to-content-link:focus {
+  transform: translate(-50%, 0%);
 }
 
 li {
