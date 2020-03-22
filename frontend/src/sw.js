@@ -26,9 +26,9 @@ workbox.routing.registerRoute(
   })
 )
 
-// Cache api requests (Kirby JSON content representations)
+// Cache api requests
 workbox.routing.registerRoute(
-  /.*\.json/,
+  /.*\?content=json/,
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'api',
     plugins: [

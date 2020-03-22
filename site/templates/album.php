@@ -22,4 +22,5 @@ foreach($page->images()->sortBy('sort') as $image) {
   ];
 }
 
+kirby()->response()->json();
 echo json_encode($data);

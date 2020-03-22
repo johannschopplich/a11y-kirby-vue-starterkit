@@ -8,7 +8,7 @@ import '@/setup/register-service-worker'
 Vue.config.productionTip = false
 
 ;(async () => {
-  const site = window.$site || (await KirbyApi.getPage('home')).site
+  const site = window.$site || (await KirbyApi.getPage('')).site
   const router = await Router.init(site)
 
   Vue.prototype.$api = KirbyApi

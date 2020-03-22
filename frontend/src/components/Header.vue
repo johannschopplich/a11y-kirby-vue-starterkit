@@ -15,8 +15,8 @@
       <router-link
         v-for="page in $site.children"
         v-slot="{ href, isExactActive, navigate }"
-        :key="page.uri"
-        :to="`/${page.uri}`"
+        :key="page.id"
+        :to="`/${page.id}`"
         @click.native="$root.scrollTop"
       >
         <a

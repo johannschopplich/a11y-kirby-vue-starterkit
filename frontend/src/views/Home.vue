@@ -3,8 +3,8 @@
     <Intro :page-title="page.title" />
 
     <ul class="grid">
-      <li v-for="album in photography.children" :key="album.uri">
-        <router-link :to="`/${album.uri}`">
+      <li v-for="album in photography.children" :key="album.id">
+        <router-link :to="`/${album.id}`">
           <figure>
             <img :src="album.cover.urlHome" :alt="album.cover.alt">
 

@@ -11,11 +11,20 @@ return function ($page, $site) {
     ];
 
     foreach ($site->children()->listed() as $child) {
+        $grandChildren = [];
+
+        foreach($child->children()->listed() as $grandChild) {
+            $grandChildren[] = [
+                'id' => $grandChild->id(),
+                'template' => $grandChild->intendedTemplate()->name()
+            ];
+        }
+
         $siteData['children'][] = [
-            'uri' => $child->uri(),
+            'id' => $child->id(),
             'template' => $child->intendedTemplate()->name(),
             'title' => $child->content()->title()->value(),
-            'childTemplate' => $child->hasChildren() ? $child->children()->first()->intendedTemplate()->name() : null
+            'children' => $grandChildren
         ];
     }
 

@@ -2,15 +2,9 @@
 
 return [
     [
-        'pattern' => 'index.html',
-        'action'  => function () {
-            return page('home');
-        }
-    ],
-    [
         'pattern' => 'robots.txt',
-        'method' => 'ALL',
-        'action' => function () {
+        'method'  => 'ALL',
+        'action'  => function () {
             $robots = 'User-agent: *' . PHP_EOL;
             $robots .= 'Allow: /' . PHP_EOL;
             $robots .= 'Sitemap: ' . url('sitemap.xml');
@@ -22,24 +16,25 @@ return [
     ],
     [
         'pattern' => '(:all).panel',
-        'action' => function ($id) {
+        'action'  => function ($id) {
             if (kirby()->user() && $page = page($id)) {
                 go($page->panelUrl());
             }
         }
     ],
     [
-        'pattern' => '(:any).json',
-        'action'  => function ($uri) {
-            $requestedWith = $_SERVER['HTTP_X_REQUESTED_WITH'] ?? null;
+        'pattern' => ['', '(:all)'],
+        'action'  => function ($pageId = 'home') {
+            // header('Access-Control-Allow-Origin: *');
 
-            if (page($uri) && $requestedWith === 'fetch') {
+            if (get('content', null) === 'json') {
                 $this->next();
             } else {
-                return new Response(tpl::load(kirby()->roots()->templates() . '/default.json.php', [
-                    'site' => site(),
-                    'page' => page('error')
-                ], false), 'application/json');
+                $kirby = kirby();
+                $site = site();
+                $page = page($pageId) ?? page('error');
+                $shared = $kirby->controller('site', compact('page', 'site'));
+                return tpl::load($kirby->roots()->snippets() . '/vue-index.php', A::merge($shared , compact('page', 'site')), false);
             }
         }
     ]

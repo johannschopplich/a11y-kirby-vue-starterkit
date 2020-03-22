@@ -14,10 +14,11 @@ foreach ($page->children()->listed() as $album) {
   }
 
   $data['children'][] = [
-    'uri' => $album->uri(),
+    'id' => $album->id(),
     'title' => $album->title()->value(),
     'cover' => isset($coverData) ? $coverData : null
   ];
 }
 
+kirby()->response()->json();
 echo json_encode($data);

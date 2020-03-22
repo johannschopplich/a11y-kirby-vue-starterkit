@@ -24,15 +24,17 @@ export default {
   async init (site) {
     for (const page of site.children) {
       routes.push({
-        path: `/${page.uri}`,
+        path: `/${page.id}`,
         component: () => import(`@/views/${capitalize(page.template)}.vue`)
       })
 
-      if (page.childTemplate) {
-        routes.push({
-          path: `/${page.uri}/:id`,
-          component: () => import(`@/views/${capitalize(page.childTemplate)}.vue`)
-        })
+      if (page.children) {
+        for (const childPage of page.children) {
+          routes.push({
+            path: `/${childPage.id}`,
+            component: () => import(`@/views/${capitalize(childPage.template)}.vue`)
+          })
+        }
       }
     }
 

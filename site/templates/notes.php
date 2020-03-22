@@ -6,10 +6,11 @@ $data = [
 
 foreach ($page->children()->listed()->sortBy('date', 'desc') as $note) {
   $data['children'][] = [
-    'uri' => $note->uri(),
+    'id' => $note->id(),
     'title' => $note->title()->value(),
     'date' => $note->date()->toDate('d F Y')
   ];
 }
 
+kirby()->response()->json();
 echo json_encode($data);

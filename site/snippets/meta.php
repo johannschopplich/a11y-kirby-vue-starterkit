@@ -19,10 +19,10 @@
 <meta name="application-name" content="<?= $site->title() ?>">
 <meta name="theme-color" content="#333333">
 
-<link rel="manifest" href="<?= url('manifest.json') ?>">
-<link rel="icon" href="<?= url('img/favicon-32x32.png') ?>" sizes="32x32" type="image/png">
-<link rel="icon" href="<?= url('img/favicon-16x16.png') ?>" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="<?= url('img/apple-touch-icon.png') ?>" sizes="180x180">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/img/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">

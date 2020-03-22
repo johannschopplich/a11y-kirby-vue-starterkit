@@ -4,7 +4,7 @@ module.exports = {
 
   // Modify the location of the generated HTML file only in production
   indexPath: process.env.NODE_ENV === 'production'
-    ? '../site/templates/default.php'
+    ? '../site/snippets/vue-index.php'
     : 'index.html',
 
   pages: {
