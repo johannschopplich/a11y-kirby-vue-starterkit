@@ -3,7 +3,6 @@ import App from '@/App.vue'
 import Router from '@/setup/router'
 import KirbyApi from '@/api/kirby'
 import '@/setup/plugins'
-import '@/setup/register-service-worker'
 
 Vue.config.productionTip = false
 

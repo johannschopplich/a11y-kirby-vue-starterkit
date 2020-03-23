@@ -17,7 +17,7 @@ module.exports = {
   devServer: {
     proxy: process.env.VUE_APP_BACKEND_URL || 'http://127.0.0.1:8080',
     disableHostCheck: true
-  },
+  }
 
   // css: {
   //   loaderOptions: {
@@ -29,54 +29,4 @@ module.exports = {
   //     }
   //   }
   // },
-
-  pwa: {
-    title: process.env.VUE_APP_NAME,
-    themeColor: process.env.VUE_APP_PWA_THEMECOLOR,
-    msTileColor: process.env.VUE_APP_PWA_THEMECOLOR,
-    // Add to home screen for Safari on iOS
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'default', // Possible values: `default`, `black`, and `black-translucent`
-    // Generate manifest from the config object
-    manifestOptions: {
-      name: process.env.VUE_APP_NAME,
-      short_name: process.env.VUE_APP_NAME,
-      start_url: '/',
-      background_color: process.env.VUE_APP_PWA_THEMECOLOR,
-      icons: [
-        {
-          src: './img/icons/android-chrome-192x192.png',
-          sizes: '192x192',
-          type: 'image/png'
-        },
-        {
-          src: './img/icons/android-chrome-512x512.png',
-          sizes: '512x512',
-          type: 'image/png'
-        },
-        // Android Oreo introduced adaptive icons, a new icon format that enforces
-        // the same shape for all icons on the home screen:
-        // https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
-        // Icons that don’t follow the new format are given a white background
-        {
-          src: './img/icons/android-chrome-192x192.png',
-          sizes: '192x192',
-          type: 'image/png',
-          purpose: 'maskable'
-        }
-      ]
-    },
-
-    // Ability to disable service worker while keeping manifest generation
-    // serviceWorker: false,
-
-    // Configure the workbox plugin
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // importWorkboxFrom: 'local',
-      swSrc: 'src/sw.js',
-      swDest: 'service-worker.js',
-      exclude: [/\.map$/]
-    }
-  }
 }

@@ -13,7 +13,7 @@ const routes = [
   },
   {
     path: '/home',
-    redirect: { name: 'home' }
+    redirect: '/'
   },
   {
     path: '*',

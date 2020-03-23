@@ -7,8 +7,6 @@ package-lock.json
 /public/css
 /public/js
 /public/media
-/public/*.js
-/public/manifest.json
 /site/snippets/vue-index.php
 
 # Kirby-related

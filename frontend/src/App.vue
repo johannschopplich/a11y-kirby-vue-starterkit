@@ -39,18 +39,6 @@ export default {
     }
   },
 
-  created () {
-    // Listen for the `ServiceWorkerUpdated` event
-    document.addEventListener('ServiceWorkerUpdated', this.refreshApp, { once: true })
-
-    // Refresh all open app tabs when a new service worker is installed
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (this.isRefreshing) return
-      this.isRefreshing = true
-      window.location.reload()
-    })
-  },
-
   mounted () {
     // Handle anchors, see https://stackoverflow.com/a/45206192
     setTimeout(() => this.scrollFix(this.$route.hash), 2)
@@ -69,13 +57,6 @@ export default {
 
     scrollFix (hashbang) {
       if (hashbang) window.location.hash = hashbang
-    },
-
-    refreshApp (e) {
-      const registration = e.detail
-      if (!registration || !registration.waiting) return
-      // The new service worker is installed, but not active until message is posted
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' })
     }
   }
 }
