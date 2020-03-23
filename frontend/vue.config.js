@@ -40,7 +40,7 @@ module.exports = {
     manifestOptions: {
       name: process.env.VUE_APP_NAME,
       short_name: process.env.VUE_APP_NAME,
-      start_url: '/index.html',
+      start_url: '/',
       background_color: process.env.VUE_APP_PWA_THEMECOLOR,
       icons: [
         {

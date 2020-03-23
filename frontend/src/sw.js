@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
   })
 )
 
-// Cache api requests
+// Cache content requests
 workbox.routing.registerRoute(
   /.*\?content=json/,
   new workbox.strategies.StaleWhileRevalidate({
