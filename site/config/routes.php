@@ -35,7 +35,7 @@ return [
                 return $page;
             } else {
                 $shared = $kirby->controller('site', compact('page', 'site'));
-                return tpl::load($kirby->roots()->snippets() . '/vue-index.php', A::merge($shared , compact('page', 'site')), false);
+                return tpl::load($kirby->roots()->snippets() . '/vue-index.php', A::merge($shared, compact('page', 'site')), false);
             }
         }
     ]
