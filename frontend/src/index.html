@@ -15,9 +15,6 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <% if (process.env.NODE_ENV === 'production') { %>
-      <script>window.$site = <?= json_encode($siteData) ?></script>
-    <% } %>
     <!-- Built files will be auto-injected -->
   </body>
 </html>

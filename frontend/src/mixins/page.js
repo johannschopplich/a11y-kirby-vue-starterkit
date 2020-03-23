@@ -11,7 +11,7 @@ export default {
 
     // eslint-disable-next-line no-async-promise-executor
     this.pageLoaded = new Promise(async resolve => {
-      this.page = await this.$api.getPage(id)
+      this.page = id === 'home' ? this.$home : await this.$api.getPage(id)
 
       await this.$nextTick()
 
