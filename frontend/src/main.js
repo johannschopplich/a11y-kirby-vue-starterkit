@@ -9,12 +9,10 @@ Vue.config.productionTip = false
 
 ;(async () => {
   const home = await KirbyApi.getPage('')
-  const site = home.site
-  const router = await Router.init(site)
+  const router = await Router.init(home.site)
 
   Vue.prototype.$api = KirbyApi
-  Vue.prototype.$home = home
-  Vue.prototype.$site = site
+  Vue.prototype.$site = home.site
 
   new Vue({
     router,

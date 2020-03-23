@@ -7,11 +7,9 @@ export default {
   },
 
   created () {
-    const id = this.$route.path.substr(1) || 'home'
-
     // eslint-disable-next-line no-async-promise-executor
     this.pageLoaded = new Promise(async resolve => {
-      this.page = id === 'home' ? this.$home : await this.$api.getPage(id)
+      this.page = await this.$api.getPage(this.$route.path.substr(1))
 
       await this.$nextTick()
 
