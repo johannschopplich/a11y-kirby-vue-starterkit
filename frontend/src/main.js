@@ -11,6 +11,7 @@ Vue.config.productionTip = false
   const router = await Router.init(home.site)
 
   Vue.prototype.$api = KirbyApi
+  Vue.prototype.$home = home
   Vue.prototype.$site = home.site
 
   new Vue({
