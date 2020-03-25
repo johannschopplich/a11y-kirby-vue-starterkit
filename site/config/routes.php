@@ -23,8 +23,8 @@ return [
         }
     ],
     [
-        'pattern' => ['', '(:all)'],
-        'action'  => function ($pageId = 'home') {
+        'pattern' => ['(:all)'],
+        'action'  => function ($pageId) {
             $kirby = kirby();
             $site = site();
             $page = page($pageId) ?? page('error');

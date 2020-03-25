@@ -17,13 +17,11 @@ export default {
         component: () => import(`@/views/${capitalize(page.template)}.vue`).catch(() => Default)
       })
 
-      if (page.children) {
-        for (const childPage of page.children) {
-          routes.push({
-            path: `/${childPage.id}`,
-            component: () => import(`@/views/${capitalize(childPage.template)}.vue`).catch(() => Default)
-          })
-        }
+      for (const child of page.children) {
+        routes.push({
+          path: `/${child.id}`,
+          component: () => import(`@/views/${capitalize(child.template)}.vue`).catch(() => Default)
+        })
       }
     }
 

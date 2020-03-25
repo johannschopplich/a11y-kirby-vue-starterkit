@@ -2,13 +2,13 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import Router from '@/setup/router'
 import KirbyApi from '@/api/kirby'
-import '@/setup/registerServiceWorker'
+// import '@/setup/registerServiceWorker'
 import '@/setup/plugins'
 
 Vue.config.productionTip = false
 
 ;(async () => {
-  const home = await KirbyApi.getPage('')
+  const home = await KirbyApi.getPage('home')
   const router = await Router.init(home.site)
 
   Vue.prototype.$api = KirbyApi

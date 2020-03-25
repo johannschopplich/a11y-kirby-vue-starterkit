@@ -7,11 +7,12 @@ export default {
   },
 
   created () {
-    const id = this.$route.path.substr(1)
+    // Transform Vue router path into a Kirby path
+    const pageId = this.$route.path.substr(1) || 'home'
 
     // eslint-disable-next-line no-async-promise-executor
     this.pageLoaded = new Promise(async resolve => {
-      this.page = !id ? this.$root.$home : await this.$api.getPage(id)
+      this.page = pageId === 'home' ? this.$root.$home : await this.$api.getPage(pageId)
 
       await this.$nextTick()
 
