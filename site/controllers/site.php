@@ -16,14 +16,14 @@ return function ($page, $site) {
         foreach($child->children()->published() as $grandChild) {
             $grandChildren[] = [
                 'id' => $grandChild->id(),
-                'template' => (string) $grandChild->template()
+                'template' => $grandChild->intendedTemplate()->name()
             ];
         }
 
         $siteData['children'][] = [
             'id' => $child->id(),
             'title' => $child->content()->title()->value(),
-            'template' => (string) $child->template(),
+            'template' => $child->intendedTemplate()->name(),
             'isListed' => $child->isListed(),
             'children' => $grandChildren
         ];

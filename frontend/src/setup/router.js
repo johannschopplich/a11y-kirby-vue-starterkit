@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Default from '@/views/Default.vue'
 
 Vue.use(VueRouter)
 
@@ -13,14 +14,14 @@ export default {
     for (const page of site.children) {
       routes.push({
         path: `/${page.id}`,
-        component: () => import(`@/views/${capitalize(page.template)}.vue`)
+        component: () => import(`@/views/${capitalize(page.template)}.vue`).catch(() => Default)
       })
 
       if (page.children) {
         for (const childPage of page.children) {
           routes.push({
             path: `/${childPage.id}`,
-            component: () => import(`@/views/${capitalize(childPage.template)}.vue`)
+            component: () => import(`@/views/${capitalize(childPage.template)}.vue`).catch(() => Default)
           })
         }
       }
