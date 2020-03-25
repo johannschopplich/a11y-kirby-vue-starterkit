@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import Router from '@/setup/router'
 import KirbyApi from '@/api/kirby'
+import '@/setup/registerServiceWorker'
 import '@/setup/plugins'
 
 Vue.config.productionTip = false
