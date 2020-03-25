@@ -1,31 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import Default from '@/views/Default.vue'
 
 Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/home',
-    redirect: '/'
-  },
-  {
-    path: '*',
-    name: 'Default',
-    component: Default
-  }
-]
 
 const capitalize = ([first, ...rest], lowerRest = false) => first.toUpperCase() + (lowerRest ? rest.join('').toLowerCase() : rest.join(''))
 
 export default {
   async init (site) {
+    const routes = []
+
+    // Published pages
     for (const page of site.children) {
       routes.push({
         path: `/${page.id}`,
@@ -41,6 +25,13 @@ export default {
         }
       }
     }
+
+    // Redirect `/home` to `/`
+    routes.find(route => route.path === '/home').path = '/'
+    routes.push({ path: '/home', redirect: '/' })
+
+    // Catch-all fallback for error route
+    routes.push({ path: '*', redirect: '/error' })
 
     return new VueRouter({
       mode: 'history',

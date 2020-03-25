@@ -10,20 +10,21 @@ return function ($page, $site) {
         'title' => $site->title()->value()
     ];
 
-    foreach ($site->children()->listed() as $child) {
+    foreach ($site->children()->published() as $child) {
         $grandChildren = [];
 
-        foreach($child->children()->listed() as $grandChild) {
+        foreach($child->children()->published() as $grandChild) {
             $grandChildren[] = [
                 'id' => $grandChild->id(),
-                'template' => $grandChild->intendedTemplate()->name()
+                'template' => (string) $grandChild->template()
             ];
         }
 
         $siteData['children'][] = [
             'id' => $child->id(),
-            'template' => $child->intendedTemplate()->name(),
             'title' => $child->content()->title()->value(),
+            'template' => (string) $child->template(),
+            'isListed' => $child->isListed(),
             'children' => $grandChildren
         ];
     }

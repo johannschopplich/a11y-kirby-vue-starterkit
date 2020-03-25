@@ -13,7 +13,7 @@
 
     <nav id="menu" class="menu">
       <router-link
-        v-for="page in $site.children"
+        v-for="page in $site.children.filter(page => page.isListed)"
         v-slot="{ href, isExactActive, navigate }"
         :key="page.id"
         :to="`/${page.id}`"
