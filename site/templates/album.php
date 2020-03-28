@@ -5,22 +5,18 @@ $data = [
   'headline' => $page->headline()->or($page->title())->value(),
   'description' => $page->description()->kt()->value(),
   'tags' => $page->tags()->isNotEmpty() ? $page->tags()->value() : null,
+  'cover' => $page->cover() === null ? null : [
+    'url' => $page->cover()->crop(1024, 768)->url(),
+    'alt' => $page->cover()->alt()->value()
+  ],
+  'gallery' => array_values($page->images()->sortBy('sort')->map(function ($image) {
+    return [
+      'link' => $image->link()->or($image->url())->value(),
+      'url' => $image->crop(800, 1000)->url(),
+      'alt' => $image->alt()->value()
+    ];
+  })->data())
 ];
-
-if ($cover = $page->cover()->toFile()) {
-  $data['cover'] = [
-    'url' => $cover->crop(1024, 768)->url(),
-    'alt' => $cover->alt()->value()
-  ];
-}
-
-foreach($page->images()->sortBy('sort') as $image) {
-  $data['gallery'][] = [
-    'link' => $image->link()->or($image->url())->value(),
-    'url' => $image->crop(800, 1000)->url(),
-    'alt' => $image->alt()->value()
-  ];
-}
 
 kirby()->response()->json();
 echo json_encode($data);

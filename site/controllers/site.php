@@ -7,27 +7,22 @@ return function ($page, $site) {
     $pageThumbnail = $page->thumbnail()->toFile() ? $page->thumbnail()->toFile()->url() : $siteThumbnail;
 
     $siteData = [
-        'title' => $site->title()->value()
-    ];
-
-    foreach ($site->children()->published() as $child) {
-        $grandChildren = [];
-
-        foreach($child->children()->published() as $grandChild) {
-            $grandChildren[] = [
-                'id' => $grandChild->id(),
-                'template' => $grandChild->intendedTemplate()->name()
+        'title' => $site->title()->value(),
+        'children' => array_values($site->children()->published()->map(function ($child) {
+            return [
+                'id' => $child->id(),
+                'title' => $child->content()->title()->value(),
+                'template' => $child->intendedTemplate()->name(),
+                'isListed' => $child->isListed(),
+                'children' => array_values($child->children()->published()->map(function ($grandChild) {
+                    return [
+                        'id' => $grandChild->id(),
+                        'template' => $grandChild->intendedTemplate()->name()
+                    ];
+                })->data())
             ];
-        }
-
-        $siteData['children'][] = [
-            'id' => $child->id(),
-            'title' => $child->content()->title()->value(),
-            'template' => $child->intendedTemplate()->name(),
-            'isListed' => $child->isListed(),
-            'children' => $grandChildren
-        ];
-    }
+        })->data())
+    ];
 
     return compact('pageTitle' , 'pageDescription', 'pageThumbnail', 'siteData');
 };

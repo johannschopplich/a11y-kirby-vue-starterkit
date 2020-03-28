@@ -5,15 +5,14 @@ $data = [
   'email' => $page->email()->value(),
   'phone' => $page->phone()->value(),
   'address' => $page->address()->kt()->value(),
-  'text' => $page->text()->kt()->value()
+  'text' => $page->text()->kt()->value(),
+  'social' => array_values($page->social()->toStructure()->map(function ($social) {
+    return [
+      'url' => $social->url()->value(),
+      'platform' => $social->platform()->value()
+    ];
+  })->data())
 ];
-
-foreach($page->social()->toStructure() as $social) {
-  $data['social'][] = [
-    'url' => $social->url()->value(),
-    'platform' => $social->platform()->value()
-  ];
-}
 
 kirby()->response()->json();
 echo json_encode($data);

@@ -1,16 +1,15 @@
 <?php
 
 $data = [
-  'title' => $page->title()->value()
+  'title' => $page->title()->value(),
+  'children' => array_values($page->children()->listed()->sortBy('date', 'desc')->map(function ($note) {
+    return [
+      'id' => $note->id(),
+      'title' => $note->title()->value(),
+      'date' => $note->date()->toDate('d F Y')
+    ];
+  })->data())
 ];
-
-foreach ($page->children()->listed()->sortBy('date', 'desc') as $note) {
-  $data['children'][] = [
-    'id' => $note->id(),
-    'title' => $note->title()->value(),
-    'date' => $note->date()->toDate('d F Y')
-  ];
-}
 
 kirby()->response()->json();
 echo json_encode($data);
