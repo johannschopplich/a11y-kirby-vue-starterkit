@@ -27,11 +27,12 @@ return [
         'action'  => function ($pageId) {
             $kirby = kirby();
             $site = site();
+            if (empty($pageId)) $pageId = $site->homePage()->id();
             $page = page($pageId) ?? page('error');
 
             if (option('debug') === true) header('Access-Control-Allow-Origin: *');
 
-            if (get('content', null) === 'json') {
+            if (get('content') === 'json') {
                 return $page;
             } else {
                 $shared = $kirby->controller('site', compact('page', 'site'));
