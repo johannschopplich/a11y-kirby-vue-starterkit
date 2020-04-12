@@ -12,8 +12,5 @@
   },
   "extra": {
     "kirby-cms-path": false
-  },
-  "scripts": {
-    "serve": ["Composer\\Config::disableProcessTimeout", "php -S 127.0.0.1:8080 -t public/ cliserver.php"]
   }
 }

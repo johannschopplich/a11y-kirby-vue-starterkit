@@ -1,7 +1,7 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <main id="main">
-    <Intro :page-title="page.title" />
+    <Intro :title="page.title" />
 
     <div class="notes">
       <article v-for="note in page.children" :key="note.id" class="note">

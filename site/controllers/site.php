@@ -21,6 +21,12 @@ return function ($page, $site) {
                     ];
                 })->data())
             ];
+        })->data()),
+        'social' => array_values(page('about')->social()->toStructure()->map(function ($social) {
+            return [
+                'url' => $social->url()->value(),
+                'platform' => $social->platform()->value()
+            ];
         })->data())
     ];
 

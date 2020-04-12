@@ -1,27 +1,20 @@
 export default {
   data () {
     return {
-      page: {},
-      pageLoaded: null
+      page: null
     }
   },
 
   created () {
-    // Transform Vue router path into a Kirby path
-    const pageId = this.$route.path.substr(1) || 'home'
+    // Transform route path to pageId for use with api
+    const path = this.$route.path
+    const pageId = (path.endsWith('/') ? path.slice(0, -1) : path).slice(1) || 'home'
 
-    // eslint-disable-next-line no-async-promise-executor
-    this.pageLoaded = new Promise(async resolve => {
-      this.page = pageId === 'home' ? this.$root.$home : await this.$api.getPage(pageId)
-
-      await this.$nextTick()
-
-      resolve()
-    })
+    this.page = this.$api.getPage(pageId).then(page => (this.page = page))
   },
 
   async activated () {
-    await this.pageLoaded
+    await this.page
 
     this.$emit('update-title', this.page.title)
   }

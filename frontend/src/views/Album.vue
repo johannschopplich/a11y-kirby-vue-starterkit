@@ -13,7 +13,7 @@
       </header>
 
       <div class="album-text text">
-        <span v-html="page.description" />
+        <span v-if="page.description" v-html="page.description.html" />
         <p v-if="page.tags" class="album-tags tags">{{ page.tags }}</p>
       </div>
 

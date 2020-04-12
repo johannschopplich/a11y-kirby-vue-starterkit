@@ -2,7 +2,7 @@
 
 $data = [
   'title' => $page->title()->value(),
-  'text' => $page->text()->kt()->value()
+  'text' => ['html' => $page->text()->kt()->value()]
 ];
 
 kirby()->response()->json();

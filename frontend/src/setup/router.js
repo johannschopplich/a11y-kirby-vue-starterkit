@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const capitalize = ([first, ...rest], lowerRest = false) => first.toUpperCase() + (lowerRest ? rest.join('').toLowerCase() : rest.join(''))
 
 export default {
-  async init (site) {
+  init: async site => {
     const routes = []
 
     // Published pages
@@ -29,8 +29,8 @@ export default {
     routes.find(route => route.path === '/home').path = '/'
     routes.push({ path: '/home', redirect: '/' })
 
-    // Catch-all fallback for error route
-    routes.push({ path: '*', redirect: '/error' })
+    // Catch-all fallback
+    routes.push({ path: '*', component: Default })
 
     return new VueRouter({
       mode: 'history',

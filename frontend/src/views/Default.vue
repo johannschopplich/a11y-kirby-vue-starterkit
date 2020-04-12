@@ -1,11 +1,9 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <main id="main">
-    <Intro :page-title="page.title" />
+    <Intro :title="page.title" />
 
-    <div class="text">
-      <span v-html="page.text" />
-    </div>
+    <div v-if="page.text" class="text" v-html="page.text.html" />
   </main>
 </template>
 

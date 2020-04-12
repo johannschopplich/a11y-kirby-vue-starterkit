@@ -1,15 +1,13 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <main id="main">
-    <Intro :page-title="page.title" />
+    <Intro :title="page.title" />
 
     <div class="layout">
       <aside>
         <section>
           <h2>Address</h2>
-          <div class="text">
-            <span v-html="page.address" />
-          </div>
+          <div v-if="page.address" class="text" v-html="page.address.html" />
         </section>
 
         <section>
@@ -38,9 +36,7 @@
         </section>
       </aside>
 
-      <div class="text">
-        <span v-html="page.text" />
-      </div>
+      <div v-if="page.text" class="text" v-html="page.text.html" />
     </div>
   </main>
 </template>

@@ -1,8 +1,8 @@
 <template>
   <main id="main">
-    <Intro :page-title="page.title" />
+    <Intro :title="page.title" />
 
-    <ul class="grid">
+    <ul v-if="photography" class="grid">
       <li v-for="album in photography.children" :key="album.id">
         <router-link :to="`/${album.id}`">
           <figure>
@@ -35,7 +35,7 @@ export default {
 
   data () {
     return {
-      photography: []
+      photography: null
     }
   },
 

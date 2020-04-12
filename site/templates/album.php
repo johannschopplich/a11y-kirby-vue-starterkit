@@ -3,7 +3,7 @@
 $data = [
   'title' => $page->title()->value(),
   'headline' => $page->headline()->or($page->title())->value(),
-  'description' => $page->description()->kt()->value(),
+  'description' => ['html' => $page->description()->kt()->value()],
   'tags' => $page->tags()->isNotEmpty() ? $page->tags()->value() : null,
   'cover' => $page->cover() === null ? null : [
     'url' => $page->cover()->crop(1024, 768)->url(),
