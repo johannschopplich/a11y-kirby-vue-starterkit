@@ -70,9 +70,9 @@ Finally, deploy your project and point your web server to the `public` folder.
 
 ## Notes
 
-- Vue.js mixin [`page`](frontend/src/components/mixins/page.js) roughly corresponds to the `$page` object in Kirby.
+- Vue.js mixin [`page`](src/components/mixins/page.js) roughly corresponds to the `$page` object in Kirby.
 - Vue.js components inside [src/components](src/components) correspond to Kirby snippets.
-- Vue.js views inside [frontend/src/views](frontend/src/views) correspond to Kirby templates. Routes are being automatically resolved. If you add a new page with a new blueprint you also need to manually add a new **View** (exactly as you would add a new **Template** if you were working on a frontend in Kirby).
+- Vue.js views inside [src/views](src/views) correspond to Kirby templates. Routes are being automatically resolved. If you add a new page with a new blueprint you also need to manually add a new **View** (exactly as you would add a new **Template** if you were working on a frontend in Kirby).
 
 ## Credits
 
