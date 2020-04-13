@@ -2,7 +2,7 @@
 // const path = require('path')
 
 const config = require('./kirby.config')
-process.env.VUE_APP_API_URL = (process.env.NODE_ENV === 'production' ? config.prodApi : '') || config.devApi
+process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : config.devApi
 
 module.exports = {
   outputDir: '../public',

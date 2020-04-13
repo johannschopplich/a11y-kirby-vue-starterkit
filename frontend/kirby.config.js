@@ -1,10 +1,10 @@
 const php = require('node-php-server')
 
 module.exports = {
-  devApi: 'http://127.0.0.1:8000',
+  devApi: 'http://127.0.0.1:8080',
   prodApi: '',
   host: '127.0.0.1',
-  port: 8000,
+  port: 8080,
   baseDir: '../public',
   routerPath: '../cliserver.php',
 
@@ -16,6 +16,6 @@ module.exports = {
       router: module.exports.routerPath
     })
 
-    console.log(`Backend running at: http://${module.exports.host}:${module.exports.port}`)
+    console.info(`Backend running at: http://${module.exports.host}:${module.exports.port}`)
   }
 }
