@@ -2,6 +2,15 @@
 
 > Heavily based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit). Be sure to check it out!
 
+**Key features**:
+- 🕶 Modern Kirby custom folder setup
+- ♿ Accessible routing
+- 🔍 SEO-friendly (see generated [meta tags](site/snippets/meta.php))
+- 🔌 Offline-first via minimal Workbox service worker
+- 🖖 Standard Vue CLI
+
+## Introduction
+
 This project uses [Kirby](https://getkirby.com/) as a headless CMS at the backend and [Vue.js](https://vuejs.org/) as the frontend UI library. The content is fetched via Kirby templates returning data as JSON.
 
 Snippets, templates and their specific JS/CSS from the Kirby [Starterkit](https://github.com/getkirby/starterkit) have been ported to Vue.js [Single File Components](https://vuejs.org/v2/guide/single-file-components.html) with the least possible modifications done to the original Starterkit in order to serve as a simple starting point for people wanting to use Vue.js with Kirby.
