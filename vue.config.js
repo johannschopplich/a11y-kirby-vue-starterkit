@@ -31,7 +31,8 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new WorkboxPlugin.GenerateSW({
-        exclude: [/\.(?:json|png|jpg|jpeg|svg|ico|htaccess)$/, /index\..*/, 'media'],
+        include: ['css', 'js', /\.(?:js)$/, '/'],
+        exclude: ['media'],
 
         runtimeCaching: [
           {
@@ -45,13 +46,13 @@ module.exports = {
             }
           },
           {
-            urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+            urlPattern: /\?content=json/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'api',
               expiration: {
                 maxEntries: 60,
-                maxAgeSeconds: 30 * 24 * 60 * 7 // 7 days
+                maxAgeSeconds: 30 * 24 * 60 * 14 // 14 days
               }
             }
           }
