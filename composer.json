@@ -3,7 +3,6 @@
     "php": ">=7.3.0",
     "getkirby/cms": "^3.0",
     "getkirby/editor": "^1.0",
-    "distantnative/retour-for-kirby": "^2.3",
     "beebmx/kirby-env": "^1.0",
     "kirbyzone/sitemapper": "^1.0"
   },

@@ -16,10 +16,6 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
     );
 
     public static $prefixLengthsPsr4 = array (
-        'd' => 
-        array (
-            'distantnative\\Retour\\' => 21,
-        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -60,10 +56,6 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
     );
 
     public static $prefixDirsPsr4 = array (
-        'distantnative\\Retour\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/site/plugins/retour-for-kirby/src/models',
-        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
@@ -435,7 +427,7 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
         'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
         'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
         'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
-        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/DummyTest.php',
         'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
@@ -463,11 +455,6 @@ class ComposerStaticInit1cbc4f918cf4254b9395feafd54ef06e
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'claviska\\SimpleImage' => __DIR__ . '/..' . '/claviska/simpleimage/src/claviska/SimpleImage.php',
-        'distantnative\\Retour\\Log' => __DIR__ . '/../..' . '/site/plugins/retour-for-kirby/src/models/Log.php',
-        'distantnative\\Retour\\Redirects' => __DIR__ . '/../..' . '/site/plugins/retour-for-kirby/src/models/Redirects.php',
-        'distantnative\\Retour\\Retour' => __DIR__ . '/../..' . '/site/plugins/retour-for-kirby/src/models/Retour.php',
-        'distantnative\\Retour\\Stats' => __DIR__ . '/../..' . '/site/plugins/retour-for-kirby/src/models/Stats.php',
-        'distantnative\\Retour\\Version' => __DIR__ . '/../..' . '/site/plugins/retour-for-kirby/src/models/Version.php',
         'stringEncode\\Encode' => __DIR__ . '/..' . '/paquettg/string-encode/src/stringEncode/Encode.php',
         'stringEncode\\Exception' => __DIR__ . '/..' . '/paquettg/string-encode/src/stringEncode/Exception.php',
     );
