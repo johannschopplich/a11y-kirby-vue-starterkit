@@ -5,11 +5,11 @@ const config = require('./kirby.config')
 process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : config.devApi
 
 module.exports = {
-  outputDir: '../public',
+  outputDir: 'public',
 
   // Modify the location of the generated HTML file only in production
   indexPath: process.env.NODE_ENV === 'production'
-    ? '../site/snippets/vue-index.php'
+    ? path.join(__dirname, 'site/snippets/vue-index.php')
     : 'index.html',
 
   pages: {

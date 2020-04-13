@@ -1,11 +1,11 @@
 {
   "name": "aria-kirby-vue-starterkit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "serve:backend": "node -e \"require('./kirby.config').serveBackend()\"",
     "serve:frontend": "vue-cli-service serve",
     "serve": "run-p serve:*",
-    "build": "del-cli -f ../public/{js,css,*.js} && vue-cli-service build --no-clean",
+    "build": "del-cli -f public/{js,css,*.js} && vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "vue-router": "^3.1.6"
   },
   "devDependencies": {
+    "@babel/parser": "7.7.5",
     "@vue/cli-plugin-babel": "^4.3.1",
     "@vue/cli-plugin-eslint": "^4.3.1",
     "@vue/cli-plugin-router": "^4.3.1",
@@ -64,9 +65,10 @@
     }
   },
   "browserslist": [
-    "last 2 chrome versions",
     "last 2 firefox versions",
+    "last 2 chrome versions",
     "last 2 safari versions",
-    "last 2 ios versions"
+    "last 2 ios versions",
+    "last 2 edge versions"
   ]
 }

@@ -1,7 +1,8 @@
 .DS_Store
 # .env
+composer.lock
 package-lock.json
-/frontend/node_modules/
+/node_modules/
 
 # Frontend-related
 /public/css
