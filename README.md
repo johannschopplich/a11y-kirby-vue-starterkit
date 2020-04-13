@@ -1,32 +1,40 @@
 # Accessible Kirby Vue Starterkit
 
-> This project is based heavily on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit). Be sure to check it out!
+> Heavily based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit). Be sure to check it out!
 
-This project uses [Kirby](https://getkirby.com/) as a headless CMS at the backend and [Vue.js](https://vuejs.org/) as the UI library at the frontend. The content is fetched via Kirby templates encoding their response data to JSON.
+This project uses [Kirby](https://getkirby.com/) as a headless CMS at the backend and [Vue.js](https://vuejs.org/) as the frontend UI library. The content is fetched via Kirby templates returning data as JSON.
 
-Snippets, templates and their specific JS/CSS from the Kirby [Starterkit](https://github.com/getkirby/starterkit) have been ported to Vue.js [Single File Components](https://vuejs.org/v2/guide/single-file-components.html) with the least possible modifications done to the original Starterkit in order to serve as a nice starting point for people wanting to use Vue.js with Kirby.
+Snippets, templates and their specific JS/CSS from the Kirby [Starterkit](https://github.com/getkirby/starterkit) have been ported to Vue.js [Single File Components](https://vuejs.org/v2/guide/single-file-components.html) with the least possible modifications done to the original Starterkit in order to serve as a simple starting point for people wanting to use Vue.js with Kirby.
 
 The project benefits from all the standard tools used in modern frontend development. For more details you may dive into the [Vue CLI](https://cli.vuejs.org/).
 
+## Folder structure
+
+All parts of the website can be handled from the root level.
+  - `composer.json` for `package.json` dependencies.
+  - `.env` for environment variables accessible from both Kirby and Vue.
+  - Vue files are located in `src`.
+
+The standard Kirby setup is modified to reflect a modern web project.
+- Kirby CMS as well all all other PHP dependencies are located in `vendor`.
+- `public` reflects the main entry point of the website. Therefore web servers can only access files based in that directory.
+
 ## Prerequisites
 
-- Node.js with npm (only required to build the project)
+- Node.js with npm (only required to build the frontend)
 - Kirby requires PHP 7.2+
   - Kirby is **not** a free software. You can try it for free on your local machine but in order to run Kirby on a public server you must purchase a valid license at https://getkirby.com/buy
 
-## Project setup
-
-```bash
-cd frontend && npm install
-```
-
 ## Usage
 
-Please locate to `frontend` first before running any `npm` commands.
+Install npm and composer dependencies.
 
 ```bash
-cd frontend
+npm install
+composer install
 ```
+
+Note: Composer dependencies are tracked in this repository by default. `composer install` not needed necessarily.
 
 ### Serve backend & frontend for development
 
@@ -36,11 +44,13 @@ npm run serve
 
 ### Serve backend
 
-This command runs the Kirby backend using PHP's built-in web server. You can serve the backend by a web server of your choice. If done so, specify the host and port in the [`frontend/kirby.config.js`](frontend/kirby.config.js) file.
+This command spawns the Kirby backend using PHP's built-in web server. You can also serve the backend by a web server of your choice. If done so, please specify host and port in the [`kirby.config.js`](kirby.config.js).
 
 ```bash
 npm run serve:backend
 ```
+
+Another way to start the PHP built-in server is to run `./serve`.
 
 ### Serve frontend
 
