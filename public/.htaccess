@@ -13,18 +13,8 @@
     # the `.well-known` folder, which is used for Let's Encrypt and `security.txt`.
     RewriteRule (^|/)\.(?!well-known\/) index.php [L]
 
-    # Block text files in the content folder from being accessed directly.
-    RewriteRule ^content/(.*)\.(txt|md|mdown)$ index.php [L]
-
-    # Block all files in the site folder from being accessed directly,
-    # except for requests to plugin assets files.
-    RewriteRule ^site/(.*) index.php [L]
-
     # Enable authentication header.
     SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
-
-    # Block direct access to kirby and the panel sources.
-    RewriteRule ^kirby/(.*) index.php [L]
 
     # Make site links work.
     RewriteCond %{REQUEST_FILENAME} !-f
