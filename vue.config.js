@@ -1,7 +1,7 @@
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 const path = require('path')
-
+const { GenerateSW } = require('workbox-webpack-plugin')
 const config = require('./kirby.config')
+
 process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : config.devApi
 
 module.exports = {
@@ -41,10 +41,7 @@ module.exports = {
 
   configureWebpack: {
     plugins: [
-      new ServiceWorkerWebpackPlugin({
-        entry: path.join(__dirname, 'src/sw.js'),
-        filename: 'sw.js'
-      })
+      new GenerateSW()
     ]
   }
 }

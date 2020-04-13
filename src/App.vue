@@ -39,6 +39,17 @@ export default {
     }
   },
 
+  created () {
+    if (this.$workbox) {
+      this.$workbox.addEventListener('waiting', () => {
+        // this.showUpgradeUI = true
+
+        // Install new service worker directly for demonstration purposes
+        this.accept()
+      })
+    }
+  },
+
   mounted () {
     // Handle anchors, see https://stackoverflow.com/a/45206192
     setTimeout(() => this.scrollFix(this.$route.hash), 2)
@@ -53,6 +64,11 @@ export default {
       this.$announcer.set(`Current page: ${title}`)
       // Set route focus
       this.$refs.skiplink.$el.focus()
+    },
+
+    async accept () {
+      // this.showUpgradeUI = false
+      await this.$workbox.messageSW({ type: 'SKIP_WAITING' })
     },
 
     scrollFix (hashbang) {

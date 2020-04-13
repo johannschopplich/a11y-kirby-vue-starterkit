@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import Router from '@/setup/router'
 import KirbyApi from '@/setup/api/kirby-api'
-// import '@/setup/registerServiceWorker'
+import wb from '@/setup/registerServiceWorker'
 import '@/setup/plugins'
 
 Vue.config.productionTip = false
@@ -15,6 +15,7 @@ Vue.config.productionTip = false
   Vue.prototype.$api = api
   Vue.prototype.$home = home
   Vue.prototype.$site = home.site
+  Vue.prototype.$workbox = wb
 
   new Vue({
     router,
