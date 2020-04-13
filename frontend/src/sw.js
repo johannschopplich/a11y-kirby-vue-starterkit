@@ -11,15 +11,11 @@ self.addEventListener('install', event => {
       .then(() => {
         if (DEBUG) console.log('Cached assets: main', assetsToCache)
       })
-      .catch(error => {
-        console.error(error)
-        throw error
-      })
   )
 })
 
 self.addEventListener('activate', event => {
-  if (DEBUG) console.log('Service Worker activating.')
+  if (DEBUG) console.log('Service Worker activating…')
   event.waitUntil(
     global.caches.keys().then(cacheNames => {
       return Promise.all(
@@ -34,28 +30,21 @@ self.addEventListener('activate', event => {
 })
 
 // Catch `skipWaiting` action and switch to the new service worker
-// This is initiated by the user
-self.addEventListener('message', function (event) {
+self.addEventListener('message', event => {
   if (event.data.action === 'skipWaiting') self.skipWaiting()
 })
 
 // Basic strategy to check if anything changed on the server-side and if yes, fetch it
 self.addEventListener('fetch', event => {
   const request = event.request
+  const { method, url } = request
+  const requestUrl = new URL(url)
 
-  // Ignore non-GET requests
-  if (request.method !== 'GET') {
-    if (DEBUG) console.log(`[SW] Ignore non-GET request ${request.method}`)
-    return
-  }
-
-  const requestUrl = new URL(request.url)
+  // Ignore non-get requests
+  if (method !== 'GET') return
 
   // Ignore different origin
-  if (requestUrl.origin !== location.origin) {
-    if (DEBUG) console.log(`[SW] Ignore difference origin ${requestUrl.origin}`)
-    return
-  }
+  if (requestUrl.origin !== location.origin) return
 
   const resource = global.caches.match(request).then(response => {
     if (response) {

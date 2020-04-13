@@ -1,5 +1,5 @@
-// const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
-// const path = require('path')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+const path = require('path')
 
 const config = require('./kirby.config')
 process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : config.devApi
@@ -26,7 +26,7 @@ module.exports = {
       context: (path, req) => req.url.endsWith('?content=json'),
       options: { target: `http://${config.host}:${config.port}` }
     }
-  }
+  },
 
   // css: {
   //   loaderOptions: {
@@ -39,12 +39,12 @@ module.exports = {
   //   }
   // },
 
-  // configureWebpack: {
-  //   plugins: [
-  //     new ServiceWorkerWebpackPlugin({
-  //       entry: path.join(__dirname, 'src/sw.js'),
-  //       filename: 'sw.js'
-  //     })
-  //   ]
-  // }
+  configureWebpack: {
+    plugins: [
+      new ServiceWorkerWebpackPlugin({
+        entry: path.join(__dirname, 'src/sw.js'),
+        filename: 'sw.js'
+      })
+    ]
+  }
 }
