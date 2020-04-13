@@ -30,8 +30,6 @@ return [
             if (empty($pageId)) $pageId = $site->homePage()->id();
             $page = page($pageId) ?? page('error');
 
-            if (option('debug') === true) header('Access-Control-Allow-Origin: *');
-
             if (get('content') === 'json') {
                 return $page;
             } else {
