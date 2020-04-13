@@ -1,11 +1,11 @@
 # Accessible Kirby Vue Starterkit
 
-> Heavily based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit). Be sure to check it out!
+> Based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit). Be sure to check it out!
 
 **Key features**:
 - 🕶 Modern Kirby custom folder setup
 - ♿ Accessible routing
-- 🔍 SEO-friendly (see generated [meta tags](site/snippets/meta.php))
+- 🔍 SEO-friendly (server-side [generated meta tags](site/snippets/meta.php))
 - 🔌 Offline-first via minimal Workbox service worker
 - 🖖 Standard Vue CLI
 
