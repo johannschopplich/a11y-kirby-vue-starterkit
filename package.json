@@ -5,7 +5,7 @@
     "serve:backend": "node -e \"require('./kirby.config').serveBackend()\"",
     "serve:frontend": "vue-cli-service serve",
     "serve": "run-p serve:*",
-    "build": "del-cli -f public/{js,css,*.js} && vue-cli-service build --no-clean",
+    "build": "node -e \"require('./kirby.config').clean()\" && vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -22,7 +22,7 @@
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
-    "del-cli": "^3.0.0",
+    "del": "^5.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
