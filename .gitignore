@@ -7,7 +7,6 @@ package-lock.json
 # Frontend-related
 /public/css
 /public/js
-/public/media
 /public/*.js
 /site/snippets/vue-index.php
 
