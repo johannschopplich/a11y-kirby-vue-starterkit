@@ -1,20 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
 
-    <% if (process.env.NODE_ENV === 'production') { %>
-      <?php snippet('meta', compact('pageTitle', 'pageDescription', 'pageThumbnail', 'page', 'site')) ?>
-    <% } else { %>
-      <title><%= htmlWebpackPlugin.options.title %></title>
-    <% } %>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- Built files will be auto-injected -->
-  </body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <% if (process.env.NODE_ENV === 'production') { %>
+    <?php snippet('meta', compact('pageTitle', 'pageDescription', 'pageThumbnail', 'page', 'site')) ?>
+  <% } else { %>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  <% } %>
+
+</head>
+<body>
+
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- Built files will be auto-injected -->
+
+</body>
 </html>
