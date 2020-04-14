@@ -54,18 +54,18 @@ module.exports = {
     ]
   },
 
-  // Ignore any file changes in `media` folder
   devServer: {
+    // Ignore any file changes in `media` folder
     watchOptions: {
       ignored: [/media/]
-    }
-  },
-
-  // Setup content api proxy for local environment
-  pluginOptions: {
+    },
+    // Setup content api proxy for local environment
     proxy: {
-      context: (path, req) => req.url.endsWith('?content=json'),
-      options: { target: `http://${config.host}:${config.port}` }
+      '**?content=json': {
+        target: devApi,
+        ws: true,
+        changeOrigin: true
+      }
     }
   },
 
