@@ -22,6 +22,15 @@ module.exports = {
 
   productionSourceMap: false,
 
+  // Ignore generated Kirby assets in `media` folder
+  chainWebpack: config => {
+    config.plugin('copy').tap(([options]) => {
+      options[0].ignore.push('media/**')
+      return [options]
+    })
+  },
+
+  // Setup content api proxy for local environment
   pluginOptions: {
     proxy: {
       context: (path, req) => req.url.endsWith('?content=json'),
