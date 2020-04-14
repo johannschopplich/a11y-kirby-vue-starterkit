@@ -1,15 +1,16 @@
-const path = require('path')
-const config = require('./kirby.config')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 
-process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : config.devApi
+const config = require('./kirby.config')
+const devApi = `http://${config.host}:${config.port}`
+process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : devApi
 
 module.exports = {
+  publicPath: config.publicPath,
   outputDir: 'public',
 
   // Modify the location of the generated HTML file only in production
   indexPath: process.env.NODE_ENV === 'production'
-    ? path.join(__dirname, 'site/snippets/vue-index.php')
+    ? '../site/snippets/vue-index.php'
     : 'index.html',
 
   pages: {
