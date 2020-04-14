@@ -1,8 +1,8 @@
 const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const config = require('./kirby.config')
-const devApi = `http://${config.host}:${config.port}`
-process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.prodApi : devApi
+const devApiUrl = `http://${config.devHost}:${config.devPort}`
+process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.apiUrl : devApiUrl
 
 module.exports = {
   publicPath: config.publicPath,
@@ -54,15 +54,15 @@ module.exports = {
     ]
   },
 
+  // Ignore any file changes in `media` folder
   devServer: {
-    // Ignore any file changes in `media` folder
     watchOptions: {
       ignored: [/media/]
     },
     // Setup content api proxy for local environment
     proxy: {
       '**?content=json': {
-        target: devApi,
+        target: devApiUrl,
         ws: true,
         changeOrigin: true
       }
