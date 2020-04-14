@@ -22,22 +22,6 @@ module.exports = {
 
   productionSourceMap: false,
 
-  // Ignore generated Kirby assets in `media` folder
-  chainWebpack: config => {
-    config.plugin('copy').tap(([options]) => {
-      options[0].ignore.push('media/**')
-      return [options]
-    })
-  },
-
-  // Setup content api proxy for local environment
-  pluginOptions: {
-    proxy: {
-      context: (path, req) => req.url.endsWith('?content=json'),
-      options: { target: `http://${config.host}:${config.port}` }
-    }
-  },
-
   configureWebpack: {
     plugins: [
       new WorkboxPlugin.GenerateSW({
@@ -68,5 +52,28 @@ module.exports = {
         ]
       })
     ]
+  },
+
+  // Ignore any file changes in `media` folder
+  devServer: {
+    watchOptions: {
+      ignored: [/media/]
+    }
+  },
+
+  // Setup content api proxy for local environment
+  pluginOptions: {
+    proxy: {
+      context: (path, req) => req.url.endsWith('?content=json'),
+      options: { target: `http://${config.host}:${config.port}` }
+    }
+  },
+
+  // Exclude generated Kirby panel bundles in `media` folder from Vue CLI output
+  chainWebpack: config => {
+    config.plugin('copy').tap(([options]) => {
+      options[0].ignore.push('media/**')
+      return [options]
+    })
   }
 }
