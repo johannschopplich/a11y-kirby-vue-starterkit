@@ -39,7 +39,7 @@ module.exports = {
             }
           },
           {
-            urlPattern: /\?content=json/,
+            urlPattern: /\?content=json$/,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'content',
