@@ -1,7 +1,7 @@
 const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const config = require('./kirby.config')
-const devApiUrl = `http://${config.devHost}:${config.devPort}`
+const devApiUrl = `http://${config.devHostname}:${config.devPort}`
 process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.apiUrl : devApiUrl
 
 module.exports = {

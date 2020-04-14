@@ -1,27 +1,28 @@
-const php = require('node-php-server')
+const phpServer = require('php-server')
 const del = require('del')
 
 module.exports = {
   baseDir: 'public',
   publicPath: '/',
   apiUrl: '',
-  devHost: '127.0.0.1',
+  devHostname: '127.0.0.1',
   devPort: 8080,
-  devRouterPath: '../server.php',
+  devRouterPath: 'server.php',
 
   clean: async () => {
     const deletedFiles = await del('public/{css,js,*.js}')
     if (deletedFiles.length !== 0) console.info('Cleaned previous build assets:\n', deletedFiles.join('\n'))
   },
 
-  serveBackend: () => {
-    php.createServer({
-      hostname: module.exports.devHost,
+  serveBackend: async () => {
+    const server = await phpServer({
+      binary: 'php',
       port: module.exports.devPort,
+      hostname: module.exports.devHostname,
       base: module.exports.baseDir,
-      router: module.exports.routerPath
+      router: module.exports.devRouterPath
     })
 
-    console.info(`Backend running at: http://${module.exports.devHost}:${module.exports.devPort}`)
+    console.log(`Backend running at ${server.url}`)
   }
 }
