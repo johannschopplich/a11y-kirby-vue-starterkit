@@ -31,8 +31,7 @@ return [
             // Enable CORS for Vue development environment
             if (option('debug') === true) header('Access-Control-Allow-Origin: *');
 
-            if (empty($pageId)) $pageId = $site->homePage()->id();
-            if ($pageId === 'index.html') $pageId = $site->homePage()->id();
+            if ((empty($pageId) === true) || ($pageId === 'index.html')) $pageId = $site->homePage()->id();
             $page = page($pageId) ?? page('error');
 
             if (get('content') === 'json') {
