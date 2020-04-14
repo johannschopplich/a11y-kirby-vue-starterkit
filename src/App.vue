@@ -45,7 +45,7 @@ export default {
         // this.showUpgradeUI = true
 
         // Install new service worker directly for demonstration purposes
-        this.accept()
+        this.updateSW()
       })
     }
   },
@@ -66,13 +66,13 @@ export default {
       this.$refs.skiplink.$el.focus()
     },
 
-    async accept () {
-      // this.showUpgradeUI = false
-      await this.$workbox.messageSW({ type: 'SKIP_WAITING' })
-    },
-
     scrollFix (hashbang) {
       if (hashbang) window.location.hash = hashbang
+    },
+
+    async updateSW () {
+      // this.showUpgradeUI = false
+      await this.$workbox.messageSW({ type: 'SKIP_WAITING' })
     }
   }
 }

@@ -31,7 +31,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new WorkboxPlugin.GenerateSW({
-        include: ['css', 'js', /\.(?:js)$/, '/'],
+        include: ['css', 'js', /\.(?:js)$/, 'index.html'],
         exclude: ['media'],
 
         runtimeCaching: [
