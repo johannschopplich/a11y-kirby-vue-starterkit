@@ -8,7 +8,7 @@ import '@/setup/plugins'
 Vue.config.productionTip = false
 
 ;(async () => {
-  const api = KirbyApi.init(process.env.VUE_APP_API_URL)
+  const api = KirbyApi.init(process.env.VUE_APP_API_URL || (window.location.origin + process.env.BASE_URL).slice(0, -1))
   const home = await api.getPage('home')
   const router = await Router.init(home.site)
 
