@@ -23,6 +23,10 @@ return [
         }
     ],
     [
+        /**
+         * Redirect all non-json templates to a custom Vue index page (https://router.vuejs.org/guide/essentials/history-mode.html).
+         * Taken from https://getkirby.com/docs/guide/routing#defining-your-own-routes
+         */
         'pattern' => ['(:all)'],
         'action'  => function ($pageId) {
             $kirby = kirby();

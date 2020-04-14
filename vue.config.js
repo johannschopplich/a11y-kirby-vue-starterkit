@@ -1,17 +1,16 @@
 const WorkboxPlugin = require('workbox-webpack-plugin')
+const kirby = require('./kirby.config')
+const del = require('del')
 
-const config = require('./kirby.config')
-const devApiUrl = `http://${config.devHostname}:${config.devPort}`
-process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'production' ? config.apiUrl : devApiUrl
+const devApiUrl = `http://${kirby.hostname}:${kirby.port}`
+
+process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'development' ? devApiUrl : ''
+if (process.env.NODE_ENV === 'development') kirby.start()
+if (process.env.NODE_ENV === 'production') del(`${kirby.baseDir}/{css,js,*.js}`)
 
 module.exports = {
-  publicPath: config.publicPath,
-  outputDir: 'public',
-
-  // Modify the location of the generated HTML file only in production
-  indexPath: process.env.NODE_ENV === 'production'
-    ? '../site/snippets/vue-index.php'
-    : 'index.html',
+  outputDir: kirby.baseDir,
+  indexPath: process.env.NODE_ENV === 'production' ? kirby.indexPath : 'index.html',
 
   pages: {
     index: {
@@ -21,6 +20,21 @@ module.exports = {
   },
 
   productionSourceMap: false,
+
+  // Ignore any file changes in `media` folder
+  devServer: {
+    watchOptions: {
+      ignored: [/media/]
+    },
+    // Setup content api proxy for local environment
+    proxy: {
+      '**?content=json': {
+        target: devApiUrl,
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  },
 
   configureWebpack: {
     plugins: [
@@ -55,21 +69,6 @@ module.exports = {
         ]
       })
     ]
-  },
-
-  // Ignore any file changes in `media` folder
-  devServer: {
-    watchOptions: {
-      ignored: [/media/]
-    },
-    // Setup content api proxy for local environment
-    proxy: {
-      '**?content=json': {
-        target: devApiUrl,
-        ws: true,
-        changeOrigin: true
-      }
-    }
   },
 
   // Exclude generated Kirby panel bundles in `media` folder from Vue CLI output
