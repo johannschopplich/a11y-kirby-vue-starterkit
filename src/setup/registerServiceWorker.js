@@ -2,7 +2,7 @@ import { Workbox } from 'workbox-window'
 
 let wb = null
 
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   wb = new Workbox(`${process.env.BASE_URL}service-worker.js`)
 
   wb.addEventListener('activated', event => {

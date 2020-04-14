@@ -10,7 +10,12 @@ export default {
     const path = this.$route.path
     const pageId = (path.endsWith('/') ? path.slice(0, -1) : path).slice(1) || 'home'
 
-    this.page = this.$api.getPage(pageId).then(page => (this.page = page))
+    // Prevent `home` from being fetched twice
+    if (pageId === 'home') {
+      this.page = new Promise(resolve => resolve()).then(() => (this.page = this.$home))
+    } else {
+      this.page = this.$api.getPage(pageId).then(page => (this.page = page))
+    }
   },
 
   async activated () {

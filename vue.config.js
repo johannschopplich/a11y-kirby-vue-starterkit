@@ -41,7 +41,7 @@ module.exports = {
             options: {
               cacheName: 'images',
               expiration: {
-                maxEntries: 30
+                maxEntries: 32
               }
             }
           },
