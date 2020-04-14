@@ -26,6 +26,9 @@ module.exports = {
     plugins: [
       new WorkboxPlugin.GenerateSW({
         include: ['css', 'js', 'index.html'],
+        // Force the service worker to activate immediately,
+        // instead of waiting for existing clients to close
+        skipWaiting: true,
 
         runtimeCaching: [
           {

@@ -39,15 +39,6 @@ export default {
     }
   },
 
-  created () {
-    if (this.$workbox) {
-      this.$workbox.addEventListener('waiting', () => {
-        // You may show a notification that a new app version is available.
-        // If e.g. after clicking a button, call `this.upgradeSW()` to install the new service worker.
-      })
-    }
-  },
-
   mounted () {
     // Handle anchors, see https://stackoverflow.com/a/45206192
     setTimeout(() => this.scrollFix(this.$route.hash), 2)
@@ -66,11 +57,6 @@ export default {
 
     scrollFix (hashbang) {
       if (hashbang) window.location.hash = hashbang
-    },
-
-    // Install the new service worker
-    async upgradeSW () {
-      await this.$workbox.messageSW({ type: 'SKIP_WAITING' })
     }
   }
 }
