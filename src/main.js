@@ -6,9 +6,10 @@ import wb from '@/setup/registerServiceWorker'
 import '@/setup/plugins'
 
 Vue.config.productionTip = false
+const apiUrl = (window.location.origin + process.env.BASE_URL).slice(0, -1)
 
 ;(async () => {
-  const api = KirbyApi.init()
+  const api = KirbyApi.init(apiUrl)
   const home = await api.getPage('home')
   const router = await Router.init(home.site)
 

@@ -3,32 +3,22 @@ const kirby = require('./kirby.config')
 const del = require('del')
 
 const serveKirby = true
-const injectKirby = true
-const publicPath = '/'
-const apiUrl = ''
-
-process.env.VUE_APP_API_URL = apiUrl
-process.env.VUE_APP_KIRBY_URL = apiUrl || `http://${kirby.hostname}:${kirby.port}`
+const kirbyUrl = `http://${kirby.hostname}:${kirby.port}`
 
 // Start Kirby backend server
 if (process.env.NODE_ENV === 'development' && serveKirby) {
   kirby.start()
-  console.log('\x1b[32m%s\x1b[0m', `Kirby backend running at ${process.env.VUE_APP_KIRBY_URL}\n`)
+  console.log('\x1b[32m%s\x1b[0m', `Kirby backend running at ${kirbyUrl}\n`)
 }
 
 // Clean previous build assets
 if (process.env.NODE_ENV === 'production') {
-  if (injectKirby) {
-    del(`${kirby.baseDir}/{css,js,*.js}`)
-  } else {
-    del('dist')
-  }
+  del(`${kirby.baseDir}/{css,js,*.js}`)
 }
 
 module.exports = {
-  outputDir: injectKirby ? kirby.baseDir : 'dist',
-  indexPath: process.env.NODE_ENV === 'production' && injectKirby ? kirby.indexPath : 'index.html',
-  publicPath: publicPath,
+  outputDir: kirby.baseDir,
+  indexPath: process.env.NODE_ENV === 'production' ? kirby.indexPath : 'index.html',
 
   pages: {
     index: {
@@ -47,8 +37,7 @@ module.exports = {
     // Setup content proxy for local environment
     proxy: {
       '/*.json': {
-        target: process.env.VUE_APP_KIRBY_URL,
-        pathRewrite: { [publicPath]: '/' }
+        target: kirbyUrl
       }
     }
   },
