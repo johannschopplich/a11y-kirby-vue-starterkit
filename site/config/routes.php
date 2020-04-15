@@ -1,6 +1,19 @@
 <?php
 
 return [
+    /**
+     * The `index.html` route is necessary for Workbox to work properly.
+     */
+    [
+        'pattern' => 'index.html',
+        'action'  => function () {
+            return site()->homePage();
+        }
+    ],
+    /**
+     * Redirect all non-json templates to vue index (https://router.vuejs.org/guide/essentials/history-mode.html).
+     * Taken from https://getkirby.com/docs/guide/routing#defining-your-own-routes
+     */
     [
         'pattern' => ['(:all).json'],
         'action'  => function ($pageId) {
