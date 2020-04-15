@@ -33,17 +33,6 @@ export default {
     Footer
   },
 
-  data () {
-    return {
-      isRefreshing: false
-    }
-  },
-
-  mounted () {
-    // Handle anchors, see https://stackoverflow.com/a/45206192
-    setTimeout(() => this.scrollFix(this.$route.hash), 2)
-  },
-
   methods: {
     scrollFix (hashbang) {
       if (hashbang) window.location.hash = hashbang
