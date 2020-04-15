@@ -2,12 +2,6 @@
 
 return [
     [
-        'pattern' => 'index.html',
-        'action'  => function () {
-            return page('home');
-        }
-    ],
-    [
         'pattern' => ['(:all).json'],
         'action'  => function ($pageId) {
             $kirby = kirby();
