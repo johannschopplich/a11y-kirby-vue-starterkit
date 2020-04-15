@@ -12,13 +12,11 @@ return [
         'action'  => function ($pageId) {
             $kirby = kirby();
             $site = site();
-
-            if (empty($pageId)) $pageId = $site->homePage()->id();
             $page = page($pageId) ?? page('error');
+            $tplPath = $kirby->roots()->templates() . '/' . $page->intendedTemplate() . '.json.php';
 
-            $shared = $kirby->controller('site', compact('page', 'site'));
             $kirby->response()->json();
-            return tpl::load($kirby->roots()->templates() . '/' . $page->intendedTemplate() . '.json.php', A::merge($shared, compact('page', 'site')), false);
+            return tpl::load($tplPath, compact('page', 'site'), false);
         }
     ],
     [
