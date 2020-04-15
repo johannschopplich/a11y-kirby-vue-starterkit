@@ -13,7 +13,9 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
     console.log('A new service worker has installed, but it can\'t activate until all tabs running the current version have fully unloaded.')
   })
 
-  wb.register()
+  window.addEventListener('load', () => {
+    wb.register()
+  })
 }
 
 export default wb
