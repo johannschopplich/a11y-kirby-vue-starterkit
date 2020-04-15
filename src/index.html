@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <% if (process.env.NODE_ENV === 'production') { %>
-    <?php snippet('meta', compact('pageTitle', 'pageDescription', 'pageThumbnail', 'page', 'site')) ?>
+    <?php snippet('meta') ?>
   <% } else { %>
     <title><%= htmlWebpackPlugin.options.title %></title>
   <% } %>

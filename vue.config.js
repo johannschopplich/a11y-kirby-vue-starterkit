@@ -2,14 +2,20 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const kirby = require('./kirby.config')
 const del = require('del')
 
-const devApiUrl = `http://${kirby.hostname}:${kirby.port}`
-
-process.env.VUE_APP_API_URL = process.env.NODE_ENV === 'development' ? devApiUrl : ''
-if (process.env.NODE_ENV === 'development') kirby.start()
+// Clean previous build assets
 if (process.env.NODE_ENV === 'production') del(`${kirby.baseDir}/{css,js,*.js}`)
+
+// Start Kirby backend server
+if (process.env.NODE_ENV === 'development') {
+  kirby.start()
+  console.log('\x1b[32m%s\x1b[0m', `Kirby backend running at http://${kirby.hostname}:${kirby.port}\n`)
+}
+
+const publicPath = '/'
 
 module.exports = {
   outputDir: kirby.baseDir,
+  publicPath: publicPath,
   indexPath: process.env.NODE_ENV === 'production' ? kirby.indexPath : 'index.html',
 
   pages: {
@@ -21,17 +27,16 @@ module.exports = {
 
   productionSourceMap: false,
 
-  // Ignore any file changes in `media` folder
   devServer: {
+    // Ignore any file changes in `media` folder
     watchOptions: {
       ignored: [/media/]
     },
-    // Setup content api proxy for local environment
+    // Setup content proxy for local environment
     proxy: {
-      '**?content=json': {
-        target: devApiUrl,
-        ws: true,
-        changeOrigin: true
+      '/*.json': {
+        target: `http://${kirby.hostname}:${kirby.port}`,
+        pathRewrite: { [publicPath]: '/' }
       }
     }
   },
@@ -56,7 +61,7 @@ module.exports = {
             }
           },
           {
-            urlPattern: /\?content=json$/,
+            urlPattern: /\.json$/,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'content',

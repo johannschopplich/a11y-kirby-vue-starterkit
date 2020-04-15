@@ -13,7 +13,7 @@
       <Header />
 
       <keep-alive>
-        <router-view :key="$route.path.substr(1) || 'home'" @update-title="updateTitle" />
+        <router-view :key="$route.path" />
       </keep-alive>
     </div>
 
@@ -45,16 +45,6 @@ export default {
   },
 
   methods: {
-    updateTitle (title) {
-      const pageTitle = !this.isHomePage ? `${title} – ${this.$site.title}` : this.$site.title
-      document.title = pageTitle
-
-      // Set route announcement
-      this.$announcer.set(`Current page: ${title}`)
-      // Set route focus
-      this.$refs.skiplink.$el.focus()
-    },
-
     scrollFix (hashbang) {
       if (hashbang) window.location.hash = hashbang
     }

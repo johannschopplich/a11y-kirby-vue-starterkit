@@ -18,5 +18,4 @@ $data = [
   })->data())
 ];
 
-kirby()->response()->json();
 echo json_encode($data);

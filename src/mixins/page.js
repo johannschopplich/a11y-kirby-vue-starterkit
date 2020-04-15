@@ -21,6 +21,13 @@ export default {
   async activated () {
     await this.page
 
-    this.$emit('update-title', this.page.title)
+    const pageTitle = !this.isHomePage ? `${this.page.title} – ${this.$site.title}` : this.$site.title
+    document.title = pageTitle
+
+    // Set route announcement
+    this.$announcer.set(`Current page: ${this.page.title}`)
+
+    // Set route focus
+    // this.$refs.skiplink.$el.focus()
   }
 }
