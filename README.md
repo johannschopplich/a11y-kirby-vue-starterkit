@@ -1,6 +1,6 @@
 # Accessible Kirby Vue Starterkit
 
-> Based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit). Be sure to check it out!
+> Forked from Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/jmheretik/kirby-vue-starterkit). Be sure to check it out!
 
 **Key features**:
 - 🕶 Modern Kirby folder setup
@@ -43,7 +43,7 @@ npm install
 composer install
 ```
 
-Note: Composer dependencies are tracked in this repository by default. `composer install` not needed necessarily.
+Note: Composer dependencies are tracked in this repository by default. Running `composer install` isn't necessary.
 
 ### Serve backend & frontend for development
 
@@ -51,21 +51,7 @@ Note: Composer dependencies are tracked in this repository by default. `composer
 npm run serve
 ```
 
-### Serve backend
-
-This command spawns the Kirby backend using PHP's built-in web server. You can also serve the backend by a web server of your choice. If done so, please specify host and port in the [`kirby.config.js`](kirby.config.js).
-
-```bash
-npm run serve:backend
-```
-
-Another way to start the PHP built-in server is to run `./serve`.
-
-### Serve frontend
-
-```bash
-npm run serve:frontend
-```
+This command spawns a PHP's built-in web server by Node. Another way to start the PHP built-in server is to run `./serve`. You can also serve the backend by a web server of your choice. If done so, please specify hostname and port in the [`kirby.config.js`](kirby.config.js) if they differ from `127.0.0.1:8000` and more importantly set `serveKirby` to `false` in the Vue config file.
 
 ### Compile for production
 
@@ -73,7 +59,7 @@ npm run serve:frontend
 npm run build
 ```
 
-This builds the frontend assets and saves them to the `public` directory and the index file as a Kirby snippet to `site/snippets/vue-index.php`.
+This builds the frontend assets and saves them to the `public` directory and the index file as a Kirby template to `site/templates/default.php`.
 
 Finally, deploy your project and point your web server to the `public` folder.
 
@@ -85,4 +71,4 @@ Finally, deploy your project and point your web server to the `public` folder.
 
 ## Credits
 
-Big thanks to Jakub Medvecký Heretik for his work on multiple Vue-centered starterkits like [kirby-json-vue-starterkit](https://github.com/jmheretik/kirby-json-vue-starterkit)!
+Big thanks to Jakub Medvecký Heretik for his work on multiple Vue-centered starterkits like [kirby-json-vue-starterkit](https://github.com/jmheretik/kirby-vue-starterkit)!
