@@ -4,7 +4,7 @@ import Default from '@/views/Default.vue'
 
 Vue.use(VueRouter)
 
-const capitalize = ([first, ...rest], lowerRest = false) => first.toUpperCase() + (lowerRest ? rest.join('').toLowerCase() : rest.join(''))
+const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('')
 
 export default {
   init: async site => {
