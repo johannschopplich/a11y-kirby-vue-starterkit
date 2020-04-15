@@ -1,17 +1,26 @@
-<title><?= $pageTitle ?></title>
-<meta name="description" content="<?= $pageDescription ?>">
+<?php
+
+$title = $page->customTitle()->or($page->title() . ' – ' . $site->title());
+$description = $page->description()->or($site->description());
+$siteThumbnail = $site->thumbnail()->toFile() ? $site->thumbnail()->toFile()->url() : null;
+$pageThumbnail = $page->thumbnail()->toFile() ? $page->thumbnail()->toFile()->url() : $siteThumbnail;
+
+?>
+
+<title><?= $title ?></title>
+<meta name="description" content="<?= $description ?>">
 <link rel="canonical" href="<?= $page->url() ?>">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="<?= $page->url() ?>">
-<meta property="og:title" content="<?= $pageTitle ?>">
-<meta property="og:description" content="<?= $pageDescription ?>">
+<meta property="og:title" content="<?= $title ?>">
+<meta property="og:description" content="<?= $description ?>">
 <meta property="og:image" content="<?= $pageThumbnail ?>">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:domain" content="<?= Url::host() ?>">
-<meta name="twitter:title" content="<?= $pageTitle ?>">
-<meta name="twitter:description" content="<?= $pageDescription ?>">
+<meta name="twitter:title" content="<?= $title ?>">
+<meta name="twitter:description" content="<?= $description ?>">
 <meta name="twitter:image" content="<?= $pageThumbnail ?>">
 <meta name="twitter:url" content="<?= $page->url() ?>">
 
