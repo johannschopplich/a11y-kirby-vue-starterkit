@@ -2,30 +2,8 @@
 
 return [
     /**
-     * The `index.html` route is necessary for Workbox to work properly.
+     * Redirect robots.txt to instruct robots (typically search engine robots) how to crawl & index pages on this website.
      */
-    [
-        'pattern' => 'index.html',
-        'action'  => function () {
-            return site()->homePage();
-        }
-    ],
-    /**
-     * Redirect all non-json templates to vue index (https://router.vuejs.org/guide/essentials/history-mode.html).
-     * Taken from https://getkirby.com/docs/guide/routing#defining-your-own-routes
-     */
-    [
-        'pattern' => ['(:all).json'],
-        'action'  => function ($pageId) {
-            $kirby = kirby();
-            $site = site();
-            $page = page($pageId) ?? page('error');
-            $tplPath = $kirby->roots()->templates() . '/' . $page->intendedTemplate() . '.json.php';
-
-            $kirby->response()->json();
-            return tpl::load($tplPath, compact('page', 'site'), false);
-        }
-    ],
     [
         'pattern' => 'robots.txt',
         'method'  => 'ALL',
@@ -37,6 +15,27 @@ return [
                 ->response()
                 ->type('text')
                 ->body($robots);
+        }
+    ],
+    /**
+     * Redirect all non-JSON templates to Vue index (https://router.vuejs.org/guide/essentials/history-mode.html).
+     * Taken from https://getkirby.com/docs/guide/routing#defining-your-own-routes
+     */
+    [
+        'pattern' => ['(:all).json'],
+        'action'  => function ($pageId) {
+            kirby()->response()->json();
+            return (page($pageId) ?? page('error'))->render();
+        }
+    ],
+    [
+        'pattern' => ['(:all)'],
+        'action'  => function ($pageId) {
+            if (empty($pageId) === true || $pageId === 'index.html') $pageId = $site->homePage()->id();
+            $site = site();
+            $page = page($pageId) ?? page('error');
+
+            return tpl::load(kirby()->roots()->snippets() . '/' . 'vue-index.php', compact('page', 'site'), false);
         }
     ]
 ];

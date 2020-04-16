@@ -2,7 +2,7 @@ const phpServer = require('php-server')
 
 module.exports = {
   baseDir: 'public',
-  indexPath: '../site/templates/default.php',
+  indexPath: '../site/snippets/vue-index.php',
   hostname: '127.0.0.1',
   port: 8000,
   routerPath: 'server.php',
