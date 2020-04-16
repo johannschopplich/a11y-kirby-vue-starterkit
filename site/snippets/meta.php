@@ -25,13 +25,12 @@ $pageThumbnail = $page->thumbnail()->toFile() ? $page->thumbnail()->toFile()->ur
 <meta name="twitter:url" content="<?= $page->url() ?>">
 
 <meta name="application-name" content="<?= $site->title() ?>">
-<meta name="theme-color" content="#333333">
+<meta name="theme-color" content="#41b883">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="<?= $site->title() ?>">
 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/img/icons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" sizes="180x180">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="<?= $site->title() ?>">
