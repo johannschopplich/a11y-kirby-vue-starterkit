@@ -30,15 +30,16 @@ module.exports = {
   productionSourceMap: false,
 
   devServer: {
-    // Ignore any file changes in `media` folder
-    watchOptions: {
-      ignored: [/media/]
-    },
-    // Setup content proxy for local environment
+    // If e.g. POST requests are sent to the Kirby server, the proxy for
+    // local environment has to be changed to: `proxy: kirbyUrl`
     proxy: {
       '/*.json': {
         target: kirbyUrl
       }
+    },
+    // Ignore any file changes in `media` folder
+    watchOptions: {
+      ignored: [/media/]
     }
   },
 
