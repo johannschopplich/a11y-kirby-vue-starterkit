@@ -1,6 +1,6 @@
 {
-  "name": "Kirby Vue Starterkit",
-  "short_name": "Kirby Vue Starterkit",
+  "name": "Mægazine",
+  "short_name": "Mægazine",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",
@@ -19,8 +19,8 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#41b883",
+  "background_color": "#41b883",
   "start_url": "/index.html",
   "display": "standalone"
 }
