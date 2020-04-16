@@ -72,7 +72,7 @@ html {
   position: absolute;
   top: -1px;
   left: 50%;
-  border: 2px solid #000;
+  border: 1px solid #000;
   padding: .25rem .5rem;
   transform: translate(-50%, -100%);
 }
