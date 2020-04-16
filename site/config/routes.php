@@ -31,8 +31,8 @@ return [
     [
         'pattern' => ['(:all)'],
         'action'  => function ($pageId) {
-            if (empty($pageId) === true || $pageId === 'index.html') $pageId = $site->homePage()->id();
             $site = site();
+            if (empty($pageId) === true || $pageId === 'index.html') $pageId = $site->homePage()->id();
             $page = page($pageId) ?? page('error');
 
             return tpl::load(kirby()->roots()->snippets() . '/' . 'vue-index.php', compact('page', 'site'), false);
