@@ -21,11 +21,9 @@ export default {
   async activated () {
     await this.page
 
-    const pageTitle = !this.isHomePage ? `${this.page.title} – ${this.$site.title}` : this.$site.title
-    document.title = pageTitle
-
-    // Set route announcement
-    this.$announcer.set(`Current page: ${this.page.title}`)
+    // Set document title and route announcement
+    document.title = this.page.metaTitle
+    this.$announcer.set(`Current page: ${this.page.metaTitle}`)
 
     this.$emit('route-changed')
   }

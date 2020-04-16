@@ -2,6 +2,7 @@
 
 $data = [
   'title' => $page->title()->value(),
+  'metaTitle' => $page->customTitle()->or($page->title() . ' – ' . $site->title())->value(),
   'children' => array_values($page->children()->listed()->map(function ($album) {
     return [
       'id' => $album->id(),
