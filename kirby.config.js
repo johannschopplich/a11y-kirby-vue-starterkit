@@ -7,7 +7,7 @@ module.exports = {
   port: 8000,
   routerPath: 'server.php',
 
-  start: () => async () => {
+  start: async () => {
     // eslint-disable-next-line no-unused-vars
     const server = await phpServer({
       binary: 'php',
