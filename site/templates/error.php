@@ -1,3 +1,3 @@
 <?php
 
-require __DIR__ . '/default.json.php';
+require __DIR__ . '/default.php';
