@@ -27,7 +27,6 @@ export default {
     // Set route announcement
     this.$announcer.set(`Current page: ${this.page.title}`)
 
-    // Set route focus
-    // this.$refs.skiplink.$el.focus()
+    this.$emit('route-changed')
   }
 }

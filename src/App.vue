@@ -4,7 +4,7 @@
       ref="skiplink"
       to="#main"
       class="skip-to-content-link"
-      @click.native="scrollFix('#main')"
+      @click.native="scrollToHash('#main')"
     >
       Skip to content
     </router-link>
@@ -13,7 +13,7 @@
       <Header />
 
       <keep-alive>
-        <router-view :key="$route.path" />
+        <router-view :key="$route.path" @route-changed="routeChanged" />
       </keep-alive>
     </div>
 
@@ -33,8 +33,18 @@ export default {
     Footer
   },
 
+  mounted () {
+    setTimeout(() => {
+      this.scrollToHash(this.$route.hash)
+    }, 2)
+  },
+
   methods: {
-    scrollFix (hashbang) {
+    routeChanged () {
+      this.$refs.skiplink.$el.focus()
+    },
+
+    scrollToHash (hashbang) {
       if (hashbang) window.location.hash = hashbang
     }
   }
@@ -60,11 +70,11 @@ html {
 
 .skip-to-content-link {
   position: absolute;
+  top: -1px;
   left: 50%;
-  height: 2rem;
-  padding: 0.5rem;
+  border: 2px solid #000;
+  padding: .25rem .5rem;
   transform: translate(-50%, -100%);
-  transition: transform 0.3s;
 }
 
 .skip-to-content-link:focus {
