@@ -29,6 +29,8 @@ return [
         'srcsets' => [
             'default' => [360, 720]
         ]
-    ]
+    ],
+
+    'cre8ivclick.sitemapper.title' => 'Sitemap'
 
 ];
