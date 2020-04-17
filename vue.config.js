@@ -78,9 +78,11 @@ module.exports = {
     ]
   },
 
-  // Exclude generated Kirby panel bundles in `media` folder from Vue CLI output
+  // Omit asset size evaluation of files inside `img` and `media` folder
+  // since they are not handled by the Vue CLI
   chainWebpack: config => {
     config.plugin('copy').tap(([options]) => {
+      options[0].ignore.push('img/**')
       options[0].ignore.push('media/**')
       return [options]
     })
