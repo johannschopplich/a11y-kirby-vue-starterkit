@@ -76,7 +76,6 @@ html {
   padding: .25rem .5rem;
   transform: translate(-50%, -100%);
 }
-
 .skip-to-content-link:focus {
   transform: translate(-50%, 0%);
 }
