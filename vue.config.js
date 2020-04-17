@@ -2,11 +2,10 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const kirby = require('./kirby.config')
 const del = require('del')
 
-const serveKirby = true
 const kirbyUrl = `http://${kirby.hostname}:${kirby.port}`
 
 // Start Kirby backend server
-if (process.env.NODE_ENV === 'development' && serveKirby) {
+if (process.env.NODE_ENV === 'development' && kirby.serve) {
   kirby.start()
   console.log('\x1b[32m%s\x1b[0m', `Kirby backend running at ${kirbyUrl}\n`)
 }
@@ -19,6 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   outputDir: kirby.baseDir,
   indexPath: process.env.NODE_ENV === 'production' ? kirby.indexPath : 'index.html',
+  publicPath: process.env.PUBLIC_PATH,
 
   pages: {
     index: {

@@ -6,8 +6,8 @@
 - 🕶 Modern Kirby folder setup
 - ♿ Accessible routing
 - 🔍 SEO-friendly (server-side [generated meta tags](site/snippets/meta.php))
-- 🔌 Offline-first via minimal Workbox service worker
-- 🖖 Standard Vue CLI
+- 🔌 Offline-first via service worker
+- 🤝 Shared .env for frontend & backend
 
 ## Introduction
 
