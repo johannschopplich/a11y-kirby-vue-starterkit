@@ -12,9 +12,13 @@ export default {
 
     // Prevent `home` from being fetched twice
     if (pageId === 'home') {
-      this.page = new Promise(resolve => { resolve() }).then(() => (this.page = this.$home))
+      this.page = new Promise(resolve => resolve(this.$home))
+        .then(page => (this.page = page))
     } else {
-      this.page = this.$api.getPage(pageId).then(page => (this.page = page))
+      this.page = this.$api
+        .getPage(pageId)
+        .then(page => (this.page = page))
+        .catch(async () => (this.page = await this.$api.getPage('error')))
     }
   },
 
