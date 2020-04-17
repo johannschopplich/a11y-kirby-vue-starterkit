@@ -7,7 +7,7 @@ import '@/setup/plugins'
 
 Vue.config.productionTip = false
 
-const apiUrl = process.env.NODE_ENV === 'production' ? process.env.VUE_APP_KIRBY_URL : window.location.origin + process.env.BASE_URL.slice(0, -1)
+const apiUrl = process.env.NODE_ENV === 'development' ? process.env.VUE_APP_KIRBY_URL : (window.location.origin + process.env.BASE_URL).slice(0, -1)
 
 ;(async () => {
   const api = KirbyApi.init(apiUrl)
