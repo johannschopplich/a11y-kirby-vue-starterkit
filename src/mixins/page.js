@@ -23,7 +23,7 @@ export default {
 
     // Set document title and route announcement
     document.title = this.page.metaTitle
-    this.$announcer.set(`Current page: ${this.page.metaTitle}`)
+    this.$announcer.set(`Current page: ${this.page.title}`)
 
     this.$emit('route-changed')
   }
