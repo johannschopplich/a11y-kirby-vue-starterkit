@@ -10,7 +10,7 @@ export default {
     const path = this.$route.path
     const pageId = (path.endsWith('/') ? path.slice(0, -1) : path).slice(1) || 'home'
 
-    // Prevent `home` from being fetched twice
+    // Prevent homepage from being fetched twice since it's already available
     if (pageId === 'home') {
       this.page = new Promise(resolve => resolve(this.$home))
         .then(page => (this.page = page))
