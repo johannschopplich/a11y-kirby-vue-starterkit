@@ -1,6 +1,6 @@
 # Accessible Kirby Vue Starterkit
 
-> Forked from Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/jmheretik/kirby-vue-starterkit). Be sure to check it out!
+> Based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-vue-starterkit). Be sure to check it out!
 
 **Key features**:
 - 🕶 Modern Kirby folder setup
