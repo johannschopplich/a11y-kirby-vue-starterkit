@@ -1,6 +1,6 @@
 # Accessible Kirby Vue Starterkit
 
-> Based on Jakub Medvecký Heretik's [Kirby API/JSON Vue Starterkit](https://github.com/jmheretik/kirby-vue-starterkit). Be sure to check it out!
+> Based on Jakub Medvecký Heretik's [Kirby Vue Starterkit](https://github.com/jmheretik/kirby-vue-starterkit). Be sure to check it out!
 
 **Key features**:
 - 🕶 Modern Kirby folder setup
@@ -65,10 +65,11 @@ Finally, deploy your project and point your web server to the `public` folder.
 
 ## Notes
 
-- Vue.js mixin [`page`](src/components/mixins/page.js) roughly corresponds to the `$page` object in Kirby.
-- Vue.js components inside [src/components](src/components) correspond to Kirby snippets.
-- Vue.js views inside [src/views](src/views) correspond to Kirby templates. Routes are being automatically resolved. If you add a new page with a new blueprint you also need to manually add a new **View** (exactly as you would add a new **Template** if you were working on a frontend in Kirby).
+- Vue.js [`page`](src/components/mixins/page.js) mixin roughly corresponds to the Kirby's `$page` object, but only the functionality needed for the starterkit is present.
+- Vue.js components in the [src/components](src/components) folder correspond to Kirby snippets.
+- Vue.js views in the [src/views](src/views) folder correspond to Kirby templates and the routes are being automatically resolved.
+  - If you add a new page in Kirby with a new blueprint you also need to manually add a new Vue view here and as well as a new template in the backend to provide the frontend with the data you require.
 
 ## Credits
 
-Big thanks to Jakub Medvecký Heretik for his work on multiple Vue-centered starterkits like [kirby-json-vue-starterkit](https://github.com/jmheretik/kirby-vue-starterkit)!
+Big thanks to Jakub Medvecký Heretik for his work on [kirby-vue-starterkit](https://github.com/jmheretik/kirby-vue-starterkit)!
