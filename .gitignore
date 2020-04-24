@@ -4,13 +4,13 @@ composer.lock
 package-lock.json
 /node_modules/
 
-# Frontend-related
+# Frontend
 /public/css
 /public/js
 /public/*.js
 /site/snippets/vue-index.php
 
-# Kirby-related
+# Kirby
 .lock
 /public/media/*
 !/public/media/index.html
@@ -22,6 +22,7 @@ package-lock.json
 !/storage/sessions/index.html
 /site/config/.license
 
+# Retour plugin
 /site/config/.retour
 /site/config/redirects.yml
 /site/logs/
