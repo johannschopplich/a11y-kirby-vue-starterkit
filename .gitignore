@@ -2,11 +2,11 @@
 # .env
 composer.lock
 package-lock.json
-/node_modules/
+node_modules/
 
 # Frontend
-/public/css
-/public/js
+/public/css/
+/public/js/
 /public/*.js
 /site/snippets/vue-index.php
 

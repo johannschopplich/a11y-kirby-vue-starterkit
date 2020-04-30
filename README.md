@@ -63,6 +63,12 @@ This builds the frontend assets and saves them to the `public` directory and the
 
 Finally, deploy your project and point your web server to the `public` folder.
 
+## Made with this template
+
+### stationofcommons.org
+
+![Station of Commons](./.github/screenshot-station-of-commons.png "Station of Commons")
+
 ## Notes
 
 - Vue.js [`page`](src/components/mixins/page.js) mixin roughly corresponds to the Kirby's `$page` object, but only the functionality needed for the starterkit is present.
