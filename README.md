@@ -1,3 +1,9 @@
+:warning::warning::warning: Not maintained anymore! :warning::warning::warning:
+
+Please head over to the [Kirby + Vue.js 3 Starterkit](https://github.com/johannschopplich/kirby-vue3-starterkit) for this project's successor.
+
+****
+
 # Accessible Kirby Vue Starterkit
 
 > Based on Jakub Medvecký Heretik's [Kirby Vue Starterkit](https://github.com/jmheretik/kirby-vue-starterkit). Be sure to check it out!
